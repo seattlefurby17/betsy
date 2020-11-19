@@ -24,11 +24,29 @@ describe Product do
                                     photo_url: "gettyimages.com", stock: 10, merchant_id: @merchant.id)
       expect(invalid_name.valid?).must_equal false
     end
+
+    it "fails validations when price is not a number" do
+      invalid_number = Product.create(name: "test name", description: "test description", price: "letters",
+                                photo_url: "gettyimages.com", stock: 10, merchant_id: @merchant.id)
+      expect(invalid_number.valid?).must_equal false
+    end
+
+    it "fails validations when price is less than 0" do
+      negative_number = Product.create(name: "test name", description: "test description", price: -200,
+                                                   photo_url: "gettyimages.com", stock: 10, merchant_id: @merchant.id)
+      expect(negative_number.valid?).must_equal false
+    end
+
+    it "fails validations when price is not present" do
+      missing_price = Product.create(name: "test name", description: "test description",
+                                                 photo_url: "gettyimages.com", stock: 10, merchant_id: @merchant.id)
+      expect(missing_price.valid?).must_equal false
+    end
+
   end
 
   describe "relationships" do
     it 'belongs to a merchant' do
-      # product = votes(:vote_one)
       Merchant.all.each do |merchant|
         if merchant.id == @product.merchant_id
           expect(@product.merchant_id).must_equal merchant.id
