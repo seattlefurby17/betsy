@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Betsy</title>
+    <title>Petsy</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,11 @@
   </head>
 
   <body>
+    <header>
+      <nav> 
+      <%= link_to 'Login with Github', github_login_path, class: 'btn btn-primary' %>
+      </nav>
+    </header>
     <%= yield %>
   </body>
 </html>
