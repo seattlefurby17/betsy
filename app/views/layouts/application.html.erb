@@ -12,9 +12,30 @@
   <body>
     <header>
       <nav> 
-      <%= link_to 'Login with Github', github_login_path, class: 'btn btn-primary' %>
+        <% if @current_merchant %>
+          <strong>Welcome <%= @current_merchant.username %></strong>
+            <%= link_to "Log out", logout_path, method: "delete", class: "btn btn-primary" %>
+        <% else %>
+          <%= link_to "Login with Github", github_login_path, class: "btn btn-primary" %>
+        <% end %>
       </nav>
     </header>
+    <section class="alert__container">
+      <% flash.each do |name, message| %>
+        <% if name == "success" %>
+          <div class="alert alert-success">
+            <span><%= message %></span>
+          </div>
+        <% else %>
+          <div class="alert alert-warning">
+            <span> <%= message  %> </span>
+          </div>
+        <% end %>
+      <% end %>
+  </section>
+
+
+
     <%= yield %>
   </body>
 </html>
