@@ -17,7 +17,8 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(product_parms)
+    # @product = Product.new(product_parms)
+    @product = Product.new(product_params)
 
     if @product.save
       redirect_to product_path(@product.id)
@@ -28,6 +29,10 @@ class ProductsController < ApplicationController
       end
       render :new
     end
+  end
+
+  def product_params
+    return params.require(:product).permit(:name, :description, :price, :photo_url, :stock)
   end
 
 end

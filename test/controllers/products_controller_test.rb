@@ -1,14 +1,17 @@
 require "test_helper"
 
 describe ProductsController do
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> a29232a6fdc84e8604163f7ad184a59771ecdce4
+
   let(:product) {
     Product.create(name: "furby", description: "dog toy", price: 30.50,
                    photo_url: "gettyimages.com", stock: 10)
   }
+  let(:merchant) {
+    Merchant.create(username: "ida", email: "ida@ida.com",
+                    provider: "github", uid: "3050")
+  }
+
+
   describe "index" do
     it "responds with success when products are saved" do
       get products_path
@@ -42,15 +45,11 @@ describe ProductsController do
       must_respond_with :redirect
       must_redirect_to products_path
     end
-<<<<<<< HEAD
 
-=======
-  it "must get index" do
-    get products_path
-    must_respond_with :success
->>>>>>> Oauth_Users
-=======
->>>>>>> a29232a6fdc84e8604163f7ad184a59771ecdce4
+    it "must get index" do
+      get products_path
+      must_respond_with :success
+    end
   end
 
   describe "new" do
@@ -100,5 +99,33 @@ describe ProductsController do
     end
   end
 
+  describe "update" do
+    let(:updated_product_hash) {
+      {
+          product: {
+              name: "updated test",
+              description: "testing123",
+              price: 800.00,
+              photo_url: "xyyx",
+              stock: 240,
+              merchant_id: merchant.id
+          }
+      }
+    }
 
+    it "can update an existing product with valid information" do
+      id = product.id
+
+      expect{
+        patch product_path(id), params: updated_product_hash
+      }.wont_change "Product.count"
+
+      updated_product = Product.find_by(id: id)
+
+      expect(updated_product.name).must_equal updated_product_hash[:product][:name]
+      expect(updated_product.description).must_equal updated_product_hash[:product][:description]
+
+      must_redirect_to product_path(id)
+    end
+  end
 end
