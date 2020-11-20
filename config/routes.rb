@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   resources :order_items
   resources :orders
   resources :products
+  get '/auth/:provider/callback', to: 'merchants#create', as: 'auth_callback'
   get '/auth/github', as: 'github_login'
-  get '/auth/:provider/callback', to: 'merchants#create', as: 'auth_callback_path'
+  
   delete '/logout', to: 'merchants#destroy', as: 'logout'
 
   # get 'homepages/index'
