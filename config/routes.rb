@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   resources :merchants
   resources :order_items
   resources :orders
-  resources :products
+  resources :products, except: [:destroy] # Called retire for clarity
+  delete '/products/:id', to: 'merchants#retire', as: 'retire_product'
+
   get '/auth/:provider/callback', to: 'merchants#create', as: 'auth_callback'
   get '/auth/github', as: 'github_login'
   
