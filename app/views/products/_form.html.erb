@@ -14,5 +14,7 @@
   <%= f.label :photo_url %>
   <%= f.text_field :photo_url %>
 
+  <%= f.hidden_field :merchant_id, value: @current_merchant.id %>
+
   <%= f.submit button_name %>
 <% end %>
