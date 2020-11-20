@@ -55,8 +55,7 @@ class ProductsController < ApplicationController
       flash[:error] = "Cannot find product to retire"
       redirect_to products_path
     end
-    @product.
-    end
+    @product.retired = true
   end
 
   private
