@@ -9,4 +9,8 @@
     <li> <%= product.stock %> in stock </li>
   </ul>
   </section>
+
+  <% if @current_merchant %>
+    <%= link_to "Add a product", new_merchant_product_path(@current_merchant.id)%>
+  <% end %>
 <% end %>

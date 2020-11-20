@@ -5,7 +5,7 @@ class MerchantsController < ApplicationController
   end
   
   def show
-    @merchant = Merchant.find_by(username: params[:username])
+    @merchant = Merchant.find_by(id: params[:id])
 
     if @merchant.nil?
       redirect_to merchants_path

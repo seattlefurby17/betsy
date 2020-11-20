@@ -6,10 +6,15 @@ Rails.application.routes.draw do
   resources :order_items
   resources :orders
   resources :products
+
+  # Nested route to create product for a merchant
+  resources :merchants do
+    resources :products, only: [:new, :create]
+  end
   
   # resources :categories
 
-  resources :products, except: [:destroy] # Called retire for clarity
+  resources :products, except: [:destroy, :new, :create] # Called retire for clarity
   delete '/products/:id', to: 'merchants#retire', as: 'retire_product'
 
   get '/auth/:provider/callback', to: 'merchants#create', as: 'auth_callback'

@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :find_product, only: [:show, :edit, :update, :retire]
+  before_action :require_login, except: [:index, :show]
 
   def index
     @products = Product.all
@@ -13,17 +14,22 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @product = Product.new
+    if params[:merchant_id]
+      @product = @current_merchant.products.new
+    end
   end
 
   def create
-    if @product.save
+    if @product.nil?
+      flash[:error] = "Cannot find product to update"
+      redirect_to products_path
+      return
+    elsif @product.save
       redirect_to product_path(@product.id)
       return
     else
       @product.errors.each do |type, err|
         flash[type] = err
-      flash[type] = err
       end
       render :new
     end
@@ -67,7 +73,7 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    return params.require(:product).permit(:id, :name, :vin, :available)
+    return params.require(:product).permit(:username, :id, :uid, :provider, :email)
   end
 
 end
