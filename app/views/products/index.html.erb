@@ -1,16 +1,69 @@
-<h2>Fineries for Furry Friends</h2>
-<% @products.each do |product| %>
-  <section class="product-index">
-  <ul>
-    <li> <h3><%= product.name %> </h3></li>
-    <li> Description: <%= product.description %> </li>
-    <li> Price: $<%= product.price %> </li>
-    <li> Sold by <%= link_to product.merchant.username, merchant_path(product.merchant) %> </li>
-    <li> <%= product.stock %> in stock </li>
-  </ul>
-  </section>
+<div class="container">
+  <div class="row">
+<!--    <div class="col-lg-3">-->
 
-  <% if @current_merchant %>
-    <%= link_to "Add a product", new_merchant_product_path(@current_merchant.id)%>
-  <% end %>
-<% end %>
+<!--      <h1 class="my-4">pEtsy</h1>-->
+<!--      <div class="list-group">-->
+<!--        <a href="#" class="list-group-item">Category 1</a>-->
+<!--        <a href="#" class="list-group-item">Merchants 1</a>-->
+
+
+<!--      </div>-->
+
+<!--      <a href="#" class="list-group-item">Category 2</a>-->
+<!--      <a href="#" class="list-group-item">Category 3</a>-->
+<!--    </div>-->
+
+<!--  </div>-->
+  <!-- /.col-lg-3 -->
+
+<!--  <div class="col-lg-9">-->
+<!--    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">-->
+<!--      <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
+<!--      <span class="sr-only">Previous</span>-->
+<!--    </a>-->
+<!--    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">-->
+<!--      <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
+<!--      <span class="sr-only">Next</span>-->
+<!--    </a>-->
+<!--  </div>-->
+
+  <div class="row">
+
+    <!-- Loop starts here -->
+
+  <% @products.each do |product| %>
+  <div class="col-lg-4 col-md-6 mb-4">
+      <div class="card h-100">
+        <% if product.photo_url %>
+          <%= image_tag product.photo_url, class: 'list_image'%>
+        <% else %>
+          <%= image_tag 'no-image-found.jpg', class: 'list_image' %>
+        <% end %>
+        <div class="card-body">
+          <h4 class="card-title">
+            <a href="#"><%= product.name %></a>
+          </h4>
+          <h5>$<%= product.price %></h5>
+          <p class="card-text"><%= product.description %></p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+        </div>
+      </div>
+    </div>
+    <% end %>
+
+    <!-- Loop ends here -->
+
+  </div>
+  <!-- /.row -->
+
+</div>
+<!-- /.col-lg-9 -->
+
+</div>
+<!-- /.row -->
+
+</div>
+<!-- /.container -->

@@ -40,9 +40,13 @@
                   <strong class="nav-link">Welcome <%= @current_merchant.username %></strong>
                 </li>
                 <li class="nav-item">
+                  <%= link_to "Add a product", new_merchant_product_path(@current_merchant.id),
+                              class: "nav-link"%>
+                </li>
+                <li class="nav-item">
                   <%= link_to "Log out", logout_path, method: "delete", class: "nav-link" %>
                 </li>
-                <% else %>
+            <% else %>
                 <li class="nav-item">
                   <%= link_to "Login with Github", github_login_path, class: "nav-link" %>
                 </li>
