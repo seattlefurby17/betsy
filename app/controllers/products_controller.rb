@@ -22,6 +22,7 @@ class ProductsController < ApplicationController
       return
     else
       @product.errors.each do |type, err|
+        flash[type] = err
       flash[type] = err
       end
       render :new
@@ -47,7 +48,6 @@ class ProductsController < ApplicationController
       render :edit
       return
     end
-  end
 
   def retire
 
