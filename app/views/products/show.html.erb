@@ -9,5 +9,5 @@
         <li>Sold by: <%= merchant.username %></li>
     <% end %>
   <% end %>
-
+  <li><%= link_to "Add to Cart", add_cart_path(@product), method: :patch %></li>
 </ul>

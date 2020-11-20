@@ -42,7 +42,7 @@
         <% end %>
         <div class="card-body">
           <h4 class="card-title">
-            <a href="#"><%= product.name %></a>
+            <%= link_to product.name, product_path(product) %>
           </h4>
           <h5>$<%= product.price %></h5>
           <p class="card-text"><%= product.description %></p>

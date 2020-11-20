@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :homepages
   resources :merchants
   resources :order_items
-  resources :orders
+  resources :orders, except: :show
   resources :products
 
   # resources :categories
@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   get '/auth/github', as: 'github_login'
   
   delete '/logout', to: 'merchants#destroy', as: 'logout'
+  get '/cart', to: 'orders#cart', as: 'cart'
+  patch '/cart/:id', to: 'orders#add_to_cart', as: 'add_cart'
 
   # get 'homepages/index'
   # get 'order_items/index'
