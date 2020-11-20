@@ -4,7 +4,6 @@ class MerchantsController < ApplicationController
     @merchants = Merchant.all
   end
 
-<<<<<<< HEAD
   def show
     @merchant = Merchant.find_by(username: params[:username])
 
@@ -12,8 +11,9 @@ class MerchantsController < ApplicationController
       redirect_to merchants_path
       return
     end
+
   end
-=======
+
   def create
     auth_hash = request.env['omniauth.auth']
     merchant = Merchant.find_by(uid: auth_hash[:uid], provider: "github")
@@ -50,6 +50,6 @@ class MerchantsController < ApplicationController
     redirect_to root_path
   end
 
->>>>>>> Oauth_Users
+
 end
 
