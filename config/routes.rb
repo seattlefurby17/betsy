@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   resources :order_items
   resources :orders
   resources :products
+  resources :categories
+  resources :login
+
+
   # get 'homepages/index'
   # get 'order_items/index'
   # get 'orders/index'
