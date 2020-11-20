@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   resources :merchants
   resources :order_items
   resources :orders
+  resources :products
+  
+  # resources :categories
+
   resources :products, except: [:destroy] # Called retire for clarity
   delete '/products/:id', to: 'merchants#retire', as: 'retire_product'
 
