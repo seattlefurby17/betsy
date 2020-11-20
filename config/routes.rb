@@ -7,11 +7,6 @@ Rails.application.routes.draw do
   resources :orders
   resources :products
 
-  # Nested route to create product for a merchant
-  resources :merchants do
-    resources :products, only: [:new, :create]
-  end
-  
   # resources :categories
 
   resources :products, except: [:destroy, :new, :create] # Called retire for clarity

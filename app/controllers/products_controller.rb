@@ -14,17 +14,14 @@ class ProductsController < ApplicationController
   end
 
   def new
-    if params[:merchant_id]
-      @product = @current_merchant.products.new
-    end
+    @product = Product.new
   end
 
   def create
-    if @product.nil?
-      flash[:error] = "Cannot find product to update"
-      redirect_to products_path
-      return
-    elsif @product.save
+    @product = Product.new(product_params)
+    @product.merchant = @current_merchant
+
+    if @product.save
       redirect_to product_path(@product.id)
       return
     else
