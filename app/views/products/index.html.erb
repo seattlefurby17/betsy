@@ -1,12 +1,12 @@
-<h1>Products</h1>
-<p>Find me in app/views/products/index.html.erb</p>
-
+<h2>Fineries for Furry Friends</h2>
 <% @products.each do |product| %>
+  <section class="product-index">
   <ul>
-    <li> <%= product.name %> </li>
-    <li> <%= product.description %> </li>
-    <li> <%= product.price %> </li>
-    <li> <%= product.merchant_id %> </li>
-    <li> <%= product.stock %> </li>
+    <li> <h3><%= product.name %> </h3></li>
+    <li> Description: <%= product.description %> </li>
+    <li> Price: $<%= product.price %> </li>
+    <li> Sold by <%= link_to product.merchant.username, merchant_path(product.merchant) %> </li>
+    <li> <%= product.stock %> in stock </li>
   </ul>
+  </section>
 <% end %>
