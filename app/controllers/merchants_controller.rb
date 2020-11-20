@@ -3,7 +3,7 @@ class MerchantsController < ApplicationController
   def index
     @merchants = Merchant.all
   end
-  
+
   def show
     @merchant = Merchant.find_by(id: params[:id])
 
@@ -11,6 +11,7 @@ class MerchantsController < ApplicationController
       redirect_to merchants_path
       return
     end
+
   end
 
   def create
@@ -48,6 +49,7 @@ class MerchantsController < ApplicationController
 
     redirect_to root_path
   end
+
 
 end
 
