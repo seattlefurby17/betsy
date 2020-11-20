@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 2020_11_19_092626) do
     t.bigint "merchant_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "retired"
     t.index ["merchant_id"], name: "index_products_on_merchant_id"
   end
 
