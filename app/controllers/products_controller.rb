@@ -48,6 +48,8 @@ class ProductsController < ApplicationController
       render :edit
       return
     end
+  end
+
 
   def retire
 
