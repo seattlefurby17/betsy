@@ -1,6 +1,7 @@
 require "test_helper"
 
 describe ProductsController do
+<<<<<<< HEAD
   let(:product) {
     Product.create(name: "furby", description: "dog toy", price: 30.50,
                    photo_url: "gettyimages.com", stock: 10)
@@ -40,6 +41,11 @@ describe ProductsController do
       must_redirect_to products_path
     end
 
+=======
+  it "must get index" do
+    get products_path
+    must_respond_with :success
+>>>>>>> Oauth_Users
   end
 
   describe "new" do
