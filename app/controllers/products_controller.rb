@@ -1,11 +1,12 @@
 class ProductsController < ApplicationController
+  before_action :find_product, only: [:show, :edit, :update, :retire]
+  before_action :require_login, except: [:index, :show]
+
   def index
     @products = Product.all
   end
 
   def show
-    @product = Product.find_by(id: params[:id])
-
     if @product.nil?
       redirect_to products_path
       return
@@ -13,23 +14,64 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @product = Product.new
+    if params[:merchant_id]
+      @product = @current_merchant.products.new
+    end
   end
 
   def create
-    # @product = Product.new(product_parms)
-    @product = Product.new(product_params)
-
-    if @product.save
+    if @product.nil?
+      flash[:error] = "Cannot find product to update"
+      redirect_to products_path
+      return
+    elsif @product.save
       redirect_to product_path(@product.id)
       return
     else
       @product.errors.each do |type, err|
-      flash[type] = err
+        flash[type] = err
       end
       render :new
     end
   end
+
+  def edit
+    if @product.nil?
+      redirect_to products_path
+      return
+    end
+  end
+
+  def update
+    if @product.nil?
+      flash[:error] = "Cannot find product to update"
+      redirect_to products_path
+      return
+    elsif @product.update(product_params)
+      redirect_to product_path(@product.id)
+      return
+    else
+      render :edit
+      return
+    end
+  end
+
+
+  def retire
+
+    if @product.nil?
+      flash[:error] = "Cannot find product to retire"
+      redirect_to products_path
+    end
+    @product.retired = true
+  end
+
+  private
+
+  def find_product
+    @product = Product.find_by(id: params[:id])
+  end
+
 
   def product_params
     return params.require(:product).permit(:name, :description, :price, :photo_url, :stock)
