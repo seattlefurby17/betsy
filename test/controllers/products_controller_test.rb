@@ -7,7 +7,6 @@ describe ProductsController do
   }
   describe "index" do
     it "responds with success when products are saved" do
-      # get products_index_url
       get products_path
       must_respond_with :success
     end
@@ -39,7 +38,6 @@ describe ProductsController do
       must_respond_with :redirect
       must_redirect_to products_path
     end
-
   end
 
   describe "new" do
