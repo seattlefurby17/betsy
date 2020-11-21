@@ -1,0 +1,14 @@
+product_one:
+  name: Furby
+  description: A toy from the 90s
+  price: 9.99
+  stock: 200
+  merchant: ada
+
+product_two:
+  name: Tamagotchi
+  description: The Tamagotchi is a handheld digital pet that was created in Japan
+  price: 15.30
+  stock: 150
+  merchant: grace
+
