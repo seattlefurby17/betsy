@@ -9,5 +9,9 @@
         <li>Sold by: <%= merchant.username %></li>
     <% end %>
   <% end %>
-  <li><%= link_to "Add to Cart", add_cart_path(@product), method: :patch %></li>
+  <%= form_with url: add_cart_path(@product), method: :patch do |f| %>
+    <%= f.label :quantity %>
+    <%= f.select :quantity, (1..99) %>
+  <li><%= f.submit "Add to Cart" %></li>
+  <% end %>
 </ul>
