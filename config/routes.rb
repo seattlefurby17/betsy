@@ -18,7 +18,6 @@ Rails.application.routes.draw do
   delete '/logout', to: 'merchants#destroy', as: 'logout'
   get '/cart', to: 'orders#cart', as: 'cart'
   patch '/cart/:id', to: 'orders#add_to_cart', as: 'add_cart'
-
   # get 'homepages/index'
   # get 'order_items/index'
   # get 'orders/index'
