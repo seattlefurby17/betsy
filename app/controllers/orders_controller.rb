@@ -16,5 +16,9 @@ class OrdersController < ApplicationController
 
   end
 
+  def check_out
+    @order = Order.find_by(id: @shopper)
+  end
+
 
 end

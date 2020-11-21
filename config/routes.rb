@@ -18,10 +18,12 @@ Rails.application.routes.draw do
   get '/auth/github', as: 'github_login'
   delete '/logout', to: 'merchants#destroy', as: 'logout'
 
-  # Cart stuff
+  # Cart(Order) stuff
   get '/cart', to: 'orders#cart', as: 'cart'
   patch '/cart/edit_quantity/:id', to: 'order_items#edit_quantity', as: 'edit_quantity'
   patch '/cart/:id', to: 'order_items#add_to_cart', as: 'add_cart'
+  get '/cart/checkout', to: 'orders#check_out', as: 'checkout'
+  post '/cart/:id', to: 'orders#process_order', as: 'process_order'
 
   # get 'homepages/index'
   # get 'order_items/index'
