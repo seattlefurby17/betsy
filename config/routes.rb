@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   root to: "homepages#index"
+  
   # TODO remove unused routes
   resources :homepages
   resources :merchants
@@ -8,7 +9,8 @@ Rails.application.routes.draw do
   resources :orders, except: :show
   resources :products, except: :destroy # Called retire for clarity
   delete '/products/:id', to: 'merchants#retire', as: 'retire_product'
-# TODO ^^ Move to products controller?
+  # TODO ^^ Move to products controller?
+
   # resources :categories
 
   # Login stuff
@@ -18,13 +20,9 @@ Rails.application.routes.draw do
 
   # Cart stuff
   get '/cart', to: 'orders#cart', as: 'cart'
-<<<<<<< HEAD
-  patch '/cart/:id', to: 'orders#add_to_cart', as: 'add_cart'
-=======
   patch '/cart/edit_quantity/:id', to: 'order_items#edit_quantity', as: 'edit_quantity'
   patch '/cart/:id', to: 'order_items#add_to_cart', as: 'add_cart'
 
->>>>>>> a25fd189f46fdbac54717fdafc401615b88cd0da
   # get 'homepages/index'
   # get 'order_items/index'
   # get 'orders/index'
