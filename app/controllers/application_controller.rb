@@ -14,17 +14,13 @@ class ApplicationController < ActionController::Base
   end
 
   def shopper
-    if session[:shopper_id]
-      @shopper = session[:shopper_id]
-      if Order.find_by(id: @shopper).nil?
+    if Order.find_by(id: session[:shopper_id]).nil?
         session[:shopper_id] = Order.create!(status: "shopping").id
         @shopper = session[:shopper_id]
-      end
     else
-      session[:shopper_id] = Order.create!(status: "shopping").id
       @shopper = session[:shopper_id]
     end
-    @shopper
+    return @shopper
 
   end
 end
