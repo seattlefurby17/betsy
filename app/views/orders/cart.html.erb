@@ -2,9 +2,22 @@
 Your Current ID: <%= @order.id %>
 Your Current Status:  <%= @order.status %>
 
-<ul>
- <% @order.order_items.each do |item| %>
-   <% @product = Product.find_by(id: item.product_id) %>
-     <li><%= @product.name %></li>
+<table>
+  <tr>
+    <th>Item</th>
+    <th>Quantity</th>
+  </tr>
+  <% @order.order_items.each do |item| %>
+    <tr>
+    <% @product = Product.find_by(id: item.product_id) %>
+    <td><%= @product.name %></td>
+    <td>
+      <%= form_with url: edit_quantity_path(@product), method: :patch do |f| %>
+        <%= f.label :quantity %>
+        <%= f.select :quantity, (1..99), selected: item.quantity %>
+      <li><%= f.submit "Change Quantity %></li>
+        <% end %>
+    </td>
+    </tr>
  <% end %>
-</ul>
+</table>
