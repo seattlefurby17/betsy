@@ -15,7 +15,7 @@ Your Current Status:  <%= @order.status %>
       <%= form_with url: edit_quantity_path(@product), method: :patch do |f| %>
         <%= f.label :quantity %>
         <%= f.select :quantity, (1..99), selected: item.quantity %>
-      <li><%= f.submit "Add to Cart" %></li>
+      <li><%= f.submit "Change Quantity %></li>
         <% end %>
     </td>
     </tr>

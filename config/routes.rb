@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :orders, except: :show
   resources :products, except: :destroy # Called retire for clarity
   delete '/products/:id', to: 'merchants#retire', as: 'retire_product'
-
+# TODO ^^ Move to products controller?
   # resources :categories
 
   # Login stuff
