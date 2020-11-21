@@ -16,9 +16,31 @@ class OrdersController < ApplicationController
 
   end
 
-  def check_out
+  def check_out # new
     @order = Order.find_by(id: @shopper)
   end
+
+  def process_order # 
+    @order = Order.find_by(id: @shopper)
+    @order = order_params
+    @order.status = 'processing'
+    raise
+
+  end
+
+  private
+
+  # def find_order
+  #   @order = Order.find_by(id: params[:id])
+  # end
+
+
+  def order_params
+    return params.require(:order).permit(:name, :email, :address, :card_number, 
+      :expiration_month, :expiration_year, :security_code, :zip_code)
+  end
+
+
 
 
 end
