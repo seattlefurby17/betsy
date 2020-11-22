@@ -39,5 +39,19 @@ class OrderItemsController < ApplicationController
 
   end
 
+  def destroy
+    @product = Product.find_by(id: params[:id])
+    if @order_item = OrderItem.find_by(product_id: @product.id, order_id: @shopper)
+      @order_item.destroy
+
+      if @order_item.nil?
+        flash["error"] = "Could not delete product"
+        return
+      end
+    end
+    redirect_to cart_path
+    return
+  end
+
 
 end
