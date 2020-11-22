@@ -1,28 +1,28 @@
 <%= form_with model: @order, method: :post do |f| %>
 
     <%= f.label :email  %>
-    <%= f.text_area :email %>
+    <%= f.text_field :email, required: true %>
 
     <%= f.label :address %>
-    <%= f.text_field :address %>
+    <%= f.text_area :address, required: true %>
 
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, required: true %>
 
     <%= f.label :card_number %>
-    <%= f.text_field :card_number %>
+    <%= f.text_field :card_number, required: true %>
 
     <%= f.label :expiration_month %>
-    <%= f.text_field :expiration_month %>
+    <%= f.text_field :expiration_month, required: true %>
 
     <%= f.label :expiration_year %>
-    <%= f.text_field :expiration_year %>
+    <%= f.text_field :expiration_year, required: true %>
 
     <%= f.label :security_code %>
-    <%= f.text_field :security_code %>
+    <%= f.text_field :security_code, required: true %>
 
     <%= f.label :zip_code %>
-    <%= f.text_field :zip_code %>
+    <%= f.text_field :zip_code, required: true %>
 
   <%= f.submit 'Make Purchase' %>
   
