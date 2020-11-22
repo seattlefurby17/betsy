@@ -7,7 +7,7 @@ class Order < ApplicationRecord
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i } 
   # validates :address
   validates :card_number, numericality: { only_integer: true, :message => "Invalid card number" }
-  validates :expiration_month, presence: true, numericality: { only_integer: true}
+  validates :expiration_month, numericality: { only_integer: true, greater_than: 0, less_than: 13 }
   validate  :expiration_year_cannot_be_in_the_past 
   validates :security_code, numericality: { only_integer: true}
   validates :zip_code,  numericality: { only_integer: true}
@@ -18,4 +18,5 @@ class Order < ApplicationRecord
     end
   end
 
+  
 end

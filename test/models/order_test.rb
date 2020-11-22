@@ -48,9 +48,17 @@ describe Order do
   end
 
   describe "relationships" do
-    it 'belongs to a merchant' do # who has order?
+    it 'an order can have many products through order_items' do # who has order?
       skip
     end
+    
+    it 'an order can have many order_items' do
+    end
+
+    it 'an invalid order_item will not be add to an order' do
+
+    end
   end
+
   
 end

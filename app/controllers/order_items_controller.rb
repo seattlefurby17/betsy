@@ -5,7 +5,7 @@ class OrderItemsController < ApplicationController
     # Check if the item exists
     if @order_item = OrderItem.find_by(product_id: @product.id, order_id: @shopper)
       # Add to the existing quantity instead of creating a new item
-      @order_item.quantity += params["quantity"].to_i
+      @order_item.add_quantity(params["quantity"].to_i)
       @order_item.save
     else
       # Create a new order item with appropriate quantity
@@ -23,7 +23,7 @@ class OrderItemsController < ApplicationController
     # If the item exists
     if @order_item = OrderItem.find_by(product_id: @product.id, order_id: @shopper)
       # Alter the order quantity
-      @order_item.quantity = params["quantity"].to_i
+      @order_item.change_quantity(params["quantity"].to_i)
       if @order_item.save.nil?
         # Save failed
         flash["error"] = "Invalid quantity specified"
