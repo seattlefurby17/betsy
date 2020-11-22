@@ -3,13 +3,12 @@ Rails.application.routes.draw do
   root to: "homepages#index"
   
   # TODO remove unused routes
-  resources :homepages
-  resources :merchants
-  resources :order_items
-  resources :orders
+  resources :homepages, only: :index
+  resources :merchants, except: [:new, :edit, :update]
+  # resources :order_items
+  resources :orders, only: :show
   resources :products, except: :destroy # Called retire for clarity
-  delete '/products/:id', to: 'merchants#retire', as: 'retire_product'
-  # TODO ^^ Move to products controller?
+  delete '/products/:id', to: 'products#retire', as: 'retire_product'
 
   # resources :categories
 

@@ -24,8 +24,23 @@ describe MerchantsController do
 
     end
 
-    it "redirects to the login route if given invalid merchant data" do
-    skip # need validations in model
+    it "doesn't create a merchant if given invalid merchant data" do
+      merchant = Merchant.new(provider: "github", uid: 99999, username: "test_merchant", email: nil)
+
+      expect { perform_login(merchant) }.wont_change "Merchant.count"
+
+      expect(session[:merchant_id]).must_be_nil
     end
-  end
+
+    it "redirects to the login route if given duplicate merchant data" do
+      merchant = Merchant.new(provider: "github", uid: 99999, username: "test_merchant",
+                              email: "grace@hooper.net")
+
+      expect { perform_login(merchant) }.wont_change "Merchant.count"
+
+      expect(session[:merchant_id]).must_be_nil
+    end
+
+
+    end
 end
