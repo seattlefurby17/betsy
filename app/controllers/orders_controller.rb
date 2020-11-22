@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
-  def index
-    @orders = Order.all
+  def show
+    @order = Order.find_by(id: @shopper)
   end
 
   def cart
@@ -20,27 +20,19 @@ class OrdersController < ApplicationController
     @order = Order.find_by(id: @shopper)
   end
 
-  def process_order # 
+  def process_order #create
     @order = Order.find_by(id: @shopper)
-    @order = order_params
+    @order.update(order_params)
     @order.status = 'processing'
-    raise
-
+    @order.save
+    redirect_to order_path
+    # raise
   end
 
+
   private
-
-  # def find_order
-  #   @order = Order.find_by(id: params[:id])
-  # end
-
-
   def order_params
     return params.require(:order).permit(:name, :email, :address, :card_number, 
       :expiration_month, :expiration_year, :security_code, :zip_code)
   end
-
-
-
-
 end

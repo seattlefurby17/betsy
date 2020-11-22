@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :homepages
   resources :merchants
   resources :order_items
-  resources :orders #except: :show
+  resources :orders
   resources :products, except: :destroy # Called retire for clarity
   delete '/products/:id', to: 'merchants#retire', as: 'retire_product'
   # TODO ^^ Move to products controller?
@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   patch '/cart/edit_quantity/:id', to: 'order_items#edit_quantity', as: 'edit_quantity'
   patch '/cart/:id', to: 'order_items#add_to_cart', as: 'add_cart'
   get '/cart/checkout', to: 'orders#check_out', as: 'checkout'
-  post '/cart/:id', to: 'orders#process_order', as: 'process_order'
+  post '/orders/:id', to: 'orders#process_order', as: 'process_order'
 
   # get 'homepages/index'
   # get 'order_items/index'
