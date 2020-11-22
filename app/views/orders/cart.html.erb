@@ -2,13 +2,6 @@
 Your Current ID: <%= @order.id %>
 Your Current Status:  <%= @order.status %>
 
-<ul>
-  <% @order.order_items.each do |item| %>
-    <% @product = Product.find_by(id: item.product_id) %>
-    <li><%= @product.name %></li>
-  <% end %>
-</ul>
-
 <table>
   <tr>
     <th>Item</th>
