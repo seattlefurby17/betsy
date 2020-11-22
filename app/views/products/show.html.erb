@@ -12,7 +12,7 @@
   <li><%= f.submit "Add to Cart" %></li>
   <% end %>
 
-  <% if @current_merchant.id == @product.merchant.id %>
+  <% if @current_merchant&.id == @product.merchant.id %>
     <%= link_to "Edit Product", edit_product_path(@product), class: 'btn btn-primary' %>
   <% end %>
 </ul>
