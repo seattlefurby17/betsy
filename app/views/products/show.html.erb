@@ -4,11 +4,8 @@
   <li> Description: <%= @product.description %> </li>
   <li> Price: $<%= @product.price %> </li>
   <li> Stock: <%= @product.stock %> </li>
-  <% Merchant.all.each do |merchant| %>
-    <% if merchant.id == @product.merchant_id %>
-        <li>Sold by: <%= merchant.username %></li>
-    <% end %>
-  <% end %>
+  <li>Sold by: <%= link_to @product.merchant.username, merchant_path(@product.merchant.id) %></li>
+
   <%= form_with url: add_cart_path(@product), method: :patch do |f| %>
     <%= f.label :quantity %>
     <%= f.select :quantity, (1..99) %>

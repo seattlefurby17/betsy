@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: "homepages#index"
   
   # TODO remove unused routes
-  resources :homepages, only: :show
+  resources :homepages, only: :index
   resources :merchants, except: [:new, :edit, :update]
   # resources :order_items
   resources :orders, only: :show
