@@ -5,6 +5,13 @@
 <table class="products-table">
   <tr>
     <th>Product Name</th>
-    <th></th>
+    <th>Product Page</th>
   </tr>
+  <% @merchant.products.each do |product| %>
+  <tr>
+    <td><%= product.name %></td>
+    <td><%= link_to "View Page", product_path(product) %></td>
+  </tr>
+
+  <% end %>
 </table>

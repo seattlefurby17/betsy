@@ -26,7 +26,7 @@ class ProductsController < ApplicationController
       return
     else
       @product.errors.each do |type, err|
-        flash[type] = err
+        flash.now[type] = "Something went wrong: #{type}: #{err}"
       end
       render :new
     end
@@ -48,6 +48,9 @@ class ProductsController < ApplicationController
       redirect_to product_path(@product.id)
       return
     else
+      @product.errors.each do |type, err|
+        flash.now[type] = "Something went wrong: #{type}: #{err}"
+      end
       render :edit
       return
     end
