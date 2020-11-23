@@ -100,6 +100,8 @@ footer {
   width:  360px;
   height: 300px;
   object-fit: cover;
+  padding-bottom: 50px;
+  margin-bottom: 100px;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -10256,4 +10258,23 @@ label {
   cursor: pointer;
   font-size: 17px;
 }
+
+//Product spotlight header
+.spotlight-header, .spotlight {
+  padding-top: 50px;
+  float: right;
+}
+
+.spotlight-description{
+  float: right;
+}
+
+.spotlight-name {
+  color: #CC490C;
+}
+
+.list-group-homepage {
+  margin-bottom: 30px;
+}
+
 

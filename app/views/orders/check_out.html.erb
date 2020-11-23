@@ -1,16 +1,11 @@
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<%= form_with model: @order, method: :post do |f| %>
 
-<%#= form_with model: @order, method: :post do |f| %>
-
-    <%#= f.label :email  %>
-    <%#= f.text_area :email %>
+    <%= f.label :email  %>
+    <%= f.text_area :email %>
 
     <%#= f.label :address %>
     <%#= f.text_field :address %>
 
-    <%#= f.label :name %>
-    <%#= f.text_field :name %>
 
     <%#= f.label :card_number %>
     <%#= f.text_field :card_number %>
@@ -29,7 +24,6 @@
 
   <%#= f.submit 'Make Purchase' %>
   
-<%# end %>
 
 <div class="row">
   <div class="col-75">
@@ -39,8 +33,14 @@
         <div class="row">
           <div class="col-50">
             <h3>Billing Address</h3>
-            <label for="fname"><i class="fa fa-user"></i> Full Name</label>
-            <input type="text" id="fname" name="firstname" placeholder="John M. Doe">
+
+<!--            example css code-->
+            <label for="fname"><i class="fa fa-user"></i> Full Name </label>
+            <input type="text" id="fname" name="firstname" >
+
+            <%= f.label :name do %><i class="fa fa-user"></i> Full Name<% end %>
+            <%= f.text_field :name, placeholder: "John M. Doe" %>
+
             <label for="email"><i class="fa fa-envelope"></i> Email</label>
             <input type="text" id="email" name="email" placeholder="john@example.com">
             <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
@@ -97,3 +97,4 @@
   </div>
 </div>
 
+<% end %>
