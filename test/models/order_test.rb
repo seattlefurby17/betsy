@@ -5,6 +5,9 @@ describe Order do
     @order = Order.create!(name: 'ada', email: 'banana@123.com', 
       address: 'test address', card_number: 123456789123456789, expiration_month: 01,
       expiration_year: 2022, security_code: 123, zip_code: 11221)
+    @merchant = merchants(:grace)
+    @product = Product.create!(name: 'test toy', price: 222, merchant_id: @merchant.id)
+    @product1 =Product.create!(name: 'test toy1', price: 111, merchant_id: @merchant.id)
   end
   describe 'validations' do
 
@@ -49,14 +52,16 @@ describe Order do
   end
 
   describe "relationships" do
-    it 'can set the product using Product' do
-      skip
+    before do 
+      @order_item = OrderItem.create!(product_id: @product.id, order_id: @order.id, quantity: 2)
+      @order_item1 = OrderItem.create!(product_id: @product1.id, order_id: @order.id, quantity: 2)
     end
 
     it 'an order can have many products through order_items' do 
-
-      # product = Product.create!(name: 'test toy', price: 222)
-
+      expect(@order.products.count).must_equal 2 
+      @order.products.each do |product|
+        expect(product).must_be_instance_of Product
+      end
       
     end
     
