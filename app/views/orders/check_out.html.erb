@@ -1,31 +1,5 @@
 <%= form_with model: @order, method: :post do |f| %>
-
-    <%= f.label :email  %>
-    <%= f.text_area :email %>
-
-    <%#= f.label :address %>
-    <%#= f.text_field :address %>
-
-
-    <%#= f.label :card_number %>
-    <%#= f.text_field :card_number %>
-
-    <%#= f.label :expiration_month %>
-    <%#= f.text_field :expiration_month %>
-
-    <%#= f.label :expiration_year %>
-    <%#= f.text_field :expiration_year %>
-
-    <%#= f.label :security_code %>
-    <%#= f.text_field :security_code %>
-
-    <%#= f.label :zip_code %>
-    <%#= f.text_field :zip_code %>
-
-  <%#= f.submit 'Make Purchase' %>
-  
-
-<div class="row">
+  <div class="row">
   <div class="col-75">
     <div class="container-form">
       <form action="/action_page.php">
@@ -33,29 +7,25 @@
         <div class="row">
           <div class="col-50">
             <h3>Billing Address</h3>
-
 <!--            example css code-->
-            <label for="fname"><i class="fa fa-user"></i> Full Name </label>
-            <input type="text" id="fname" name="firstname" >
-
-            <%= f.label :name do %><i class="fa fa-user"></i> Full Name<% end %>
+<!--            <label for="fname"><i class="fa fa-user"></i> Full Name </label>-->
+<!--            <input type="text" id="fname" name="firstname" >-->
+            <%= f.label :name do %><i class="fa fa-user"></i> Full Name <% end %>
             <%= f.text_field :name, placeholder: "John M. Doe" %>
-
-            <label for="email"><i class="fa fa-envelope"></i> Email</label>
-            <input type="text" id="email" name="email" placeholder="john@example.com">
-            <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
-            <input type="text" id="adr" name="address" placeholder="542 W. 15th Street">
-            <label for="city"><i class="fa fa-institution"></i> City</label>
-            <input type="text" id="city" name="city" placeholder="New York">
-
+            <%= f.label :email do %> <i class="fa fa-envelope"></i> Email<% end %>
+            <%= f.text_field :email, placeholder: "ada-lovelace@petsy.com", required: true %>
+            <%= f.label :address do %><i class="fa fa-address-card-o"></i> Address <% end %>
+            <%= f.text_field :address, placeholder: "542 W. 15th Street" %>
+            <%= f.label :city do %><i class="fa fa-institution"></i> City<% end %>
+            <%= f.text_field :city, placeholder: "Seattle" %>
             <div class="row">
               <div class="col-50">
-                <label for="state">State</label>
-                <input type="text" id="state" name="state" placeholder="NY">
+                <%= f.label :state do %> State <% end %>
+                <%= f.text_field :state, placeholder: "WA" %>
               </div>
               <div class="col-50">
-                <label for="zip">Zip</label>
-                <input type="text" id="zip" name="zip" placeholder="10001">
+                <%= f.label :zip_code do %> Zip <% end %>
+                <%= f.text_field :zip_code, placeholder: "98101" %>
               </div>
             </div>
           </div>
@@ -70,31 +40,27 @@
               <i class="fa fa-cc-discover" style="color:orange;"></i>
             </div>
 
-            <label for="ccnum">Credit card number</label>
-            <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
-            <label for="expmonth">Exp Month</label>
-            <input type="text" id="expmonth" name="expmonth" placeholder="September">
+            <%= f.label :card_number do %> Credit card number<% end %>
+            <%= f.text_field :card_number, placeholder: "1111-2222-3333-4444" %>
+            <%= f.label :expiration_month do %> Expiration Month<% end %>
+            <%= f.text_field :expiration_month, placeholder: "September" %>
+
 
             <div class="row">
               <div class="col-50">
-                <label for="expyear">Exp Year</label>
-                <input type="text" id="expyear" name="expyear" placeholder="2018">
+                <%= f.label :expiration_year do %> Expiration Year<% end %>
+                <%= f.text_field :expiration_year, placeholder: "2022" %>
               </div>
               <div class="col-50">
-                <label for="cvv">Security Code</label>
-                <input type="text" id="cvv" name="cvv" placeholder="352">
+                <%= f.label :security_code do %> Security Code<% end %>
+                <%= f.text_field :security_code, placeholder: "352"%>
               </div>
             </div>
           </div>
-
         </div>
-        <label>
-          <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
-        </label>
-        <input type="submit" value="Make Purchase" class="btn">
+        <%= f.submit 'Make Purchase', class: "btn" %>
       </form>
     </div>
   </div>
 </div>
-
 <% end %>

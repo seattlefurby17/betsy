@@ -33,6 +33,6 @@ class OrdersController < ApplicationController
   private
   def order_params
     return params.require(:order).permit(:name, :email, :address, :card_number, 
-      :expiration_month, :expiration_year, :security_code, :zip_code)
+      :expiration_month, :expiration_year, :security_code, :zip_code, :city, :state)
   end
 end
