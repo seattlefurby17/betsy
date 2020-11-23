@@ -104,6 +104,15 @@ footer {
   margin-bottom: 100px;
 }
 
+.churro_image {
+  float: left;
+  width:  350px;
+  height: 450px;
+  object-fit: cover;
+  padding-bottom: 50px;
+  margin-bottom: 100px;
+}
+
 [tabindex="-1"]:focus:not(:focus-visible) {
   outline: 0 !important;
 }
