@@ -2,6 +2,12 @@ require "test_helper"
 
 
 describe MerchantsController do
+
+# it 'must get index' do
+#   get merchant_path
+#   must_respond_with :success
+# end
+
   describe "auth_callback" do
     it "logs in an existing merchant" do
       merchant = merchants(:grace)
