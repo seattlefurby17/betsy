@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
 
   def shopper
     if Order.find_by(id: session[:shopper_id]).nil?
-        session[:shopper_id] = Order.create(status: "shopping").id
+        session[:shopper_id] = Order.create!(status: "shopping").id
         @shopper = session[:shopper_id]
     else
       @shopper = session[:shopper_id]
