@@ -15,11 +15,6 @@ describe Order do
       expect(@order.valid?).must_equal true
     end
 
-    # it "fails validations when address is not present" do
-    #   @order.address = nil
-    #   expect(@order.valid?).must_equal false
-    # end
-
     it "fails validations when email is not propertly formatted" do
       @order.email = 12121212
       expect(@order.valid?).must_equal false
@@ -66,9 +61,16 @@ describe Order do
     end
     
     it 'an order can have many order_items' do
+      expect(@order.order_items.count).must_equal 2 
+      @order.order_items.each do |orderitem|
+        expect(orderitem).must_be_instance_of OrderItem
+      end
+    
     end
 
     it 'an invalid order_item will not be add to an order' do
+
+      expect{ OrderItem.create(product_id: nil, order_id: @order.id, quantity: 2) }.wont_change "@order.order_items.count"
 
     end
   end
