@@ -13,13 +13,13 @@ merchants = Merchant.create!([{ username: "coolperson", email: "coolperson@cool.
                               { username: "awesomesauce", email: "awesome@sauce.com", provider: "github", uid: "97467"}])
 
 products = Product.create!([{ name: "Furby", description: "A toy from the 90s", price: 9.99,
-                              stock: 200, merchant: merchants.first},
+                              stock: 200, merchant: merchants.first, photo_url: 'furby-3.jpg'},
                             { name: "Tamagotchi", description: "The Tamagotchi is a handheld digital pet that was created in Japan. ", price: 15.30,
-                              stock: 150, merchant: Merchant.find_by(username: "sunshinerainbow")},
+                              stock: 150, merchant: Merchant.find_by(username: "sunshinerainbow"), photo_url: 'Tamagotchi.jpg' },
                             { name: "Poo Chi", description: "Poo-Chi, one of the first generations of robopet toys, is a robot dog designed by Samuel James Lloyd and Matt Lucas, ",
-                              price: 5.30, stock: 100, merchant: Merchant.find_by(username: "testuser")},
+                              price: 5.30, stock: 100, merchant: Merchant.find_by(username: "testuser"), photo_url: 'Poo-Chi.jpg' },
                             { name: "Neopets", description: "Users can own virtual pets, and buy virtual items for them using one of two virtual currencies",
-                              price: 2.00, stock: 100, merchant: Merchant.find_by(username: "wintergreen")},
+                              price: 2.00, stock: 100, merchant: Merchant.find_by(username: "wintergreen"), photo_url: 'hey_DUMBCAT.png' },
                             { name: "Vintage Troll Doll", description: "They were first created in 1959 and became one of the United States' biggest toy fads in the early 1960s.",
-                              price: 5.00, stock: 100, merchant: Merchant.find_by(username: "awesomesauce")}
+                              price: 5.00, stock: 100, merchant: Merchant.find_by(username: "awesomesauce"), photo_url: 'troll-doll.jpg' }
                            ])
