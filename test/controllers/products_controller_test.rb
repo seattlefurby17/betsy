@@ -11,7 +11,6 @@ describe ProductsController do
                    photo_url: "gettyimages.com", stock: 10, merchant_id: merchant.id)
   }
 
-
   describe "index" do
     it "responds with success when products are saved" do
       get products_path
@@ -86,7 +85,7 @@ describe ProductsController do
       must_redirect_to product_path(created_product)
     end
 
-    it "does not create a product if the form data violates Product validations" do
+    it "does not create a product if the form data violates product validations" do
       @product_hash[:product][:price] = "a"
 
       perform_login(merchant)

@@ -2,7 +2,7 @@ class Order < ApplicationRecord
   has_many :order_items
   has_many :products, through: :order_items
 
-  validates_associated :order_items # one way street, infinite loop otherwise
+  # validates_associated :order_items # one way street, infinite loop otherwise
   validates :name, format: { :with => /\A[a-zA-Z]+\z/, :message => "Only letters allowed" } 
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i } 
   # validates :address
@@ -15,8 +15,9 @@ class Order < ApplicationRecord
   def expiration_year_cannot_be_in_the_past
     if !expiration_year.blank? && expiration_year < Time.now.year
       errors.add(:expiration_year, "can't be in the past")
+    elsif !expiration_year.blank? && expiration_year == Time.now.year && expiration_month < Time.now.month
+      errors.add(:expiration_month, "can't be in the past")
     end
   end
 
-  
 end
