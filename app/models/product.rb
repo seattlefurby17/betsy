@@ -7,4 +7,8 @@ class Product < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   validates :price, presence: true, numericality: { greater_than: 0 }
 
+  def self.spotlight
+    spotlight_for_all_products = Product.all.sample
+    return spotlight_for_all_products
+  end
 end

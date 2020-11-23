@@ -1,29 +1,66 @@
 <%= form_with model: @order, method: :post do |f| %>
+  <div class="row">
+  <div class="col-75">
+    <div class="container-form">
+      <form action="/action_page.php">
 
-    <%= f.label :email  %>
-    <%= f.text_field :email, required: true %>
+        <div class="row">
+          <div class="col-50">
+            <h3>Billing Address</h3>
+<!--            example css code-->
+<!--            <label for="fname"><i class="fa fa-user"></i> Full Name </label>-->
+<!--            <input type="text" id="fname" name="firstname" >-->
+            <%= f.label :name do %><i class="fa fa-user"></i> Full Name <% end %>
+            <%= f.text_field :name, placeholder: "Ada Lovelace" %, required: true>
+            <%= f.label :email do %> <i class="fa fa-envelope"></i> Email<% end %>
+            <%= f.text_field :email, placeholder: "ada-lovelace@petsy.com", required: true %>
+            <%= f.label :address do %><i class="fa fa-address-card-o"></i> Address <% end %>
+            <%= f.text_field :address, placeholder: "542 W. 15th Street" %, required: true>
+            <%= f.label :city do %><i class="fa fa-institution"></i> City<% end %>
+            <%= f.text_field :city, placeholder: "Seattle", required: true %>
+            <div class="row">
+              <div class="col-50">
+                <%= f.label :state do %> State <% end %>
+                <%= f.text_field :state, placeholder: "WA", required: true %>
+              </div>
+              <div class="col-50">
+                <%= f.label :zip_code do %> Zip <% end %>
+                <%= f.text_field :zip_code, placeholder: "98101", required: true %>
+              </div>
+            </div>
+          </div>
 
-    <%= f.label :address %>
-    <%= f.text_area :address, required: true %>
+          <div class="col-50">
+            <h3>Payment</h3>
+            <label for="fname">Accepted Cards</label>
+            <div class="icon-container-form">
+              <i class="fa fa-cc-visa" style="color:navy;"></i>
+              <i class="fa fa-cc-amex" style="color:blue;"></i>
+              <i class="fa fa-cc-mastercard" style="color:red;"></i>
+              <i class="fa fa-cc-discover" style="color:orange;"></i>
+            </div>
 
-    <%= f.label :name %>
-    <%= f.text_field :name, required: true %>
+            <%= f.label :card_number do %> Credit card number<% end %>
+            <%= f.text_field :card_number, placeholder: "1111-2222-3333-4444", required: true %>
+            <%= f.label :expiration_month do %> Expiration Month<% end %>
+            <%= f.text_field :expiration_month, placeholder: "September", required: true %>
 
-    <%= f.label :card_number %>
-    <%= f.text_field :card_number, required: true %>
 
-    <%= f.label :expiration_month %>
-    <%= f.text_field :expiration_month, required: true %>
-
-    <%= f.label :expiration_year %>
-    <%= f.text_field :expiration_year, required: true %>
-
-    <%= f.label :security_code %>
-    <%= f.text_field :security_code, required: true %>
-
-    <%= f.label :zip_code %>
-    <%= f.text_field :zip_code, required: true %>
-
-  <%= f.submit 'Make Purchase' %>
-  
+            <div class="row">
+              <div class="col-50">
+                <%= f.label :expiration_year do %> Expiration Year<% end %>
+                <%= f.text_field :expiration_year, placeholder: "2022", required: true %>
+              </div>
+              <div class="col-50">
+                <%= f.label :security_code do %> Security Code<% end %>
+                <%= f.text_field :security_code, placeholder: "352", required: true%>
+              </div>
+            </div>
+          </div>
+        </div>
+        <%= f.submit 'Make Purchase', class: "btn" %>
+      </form>
+    </div>
+  </div>
+</div>
 <% end %>

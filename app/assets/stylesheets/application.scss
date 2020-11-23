@@ -72,6 +72,8 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 }
 
 body {
+  padding-bottom: 100px;
+  position: relative;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 1rem;
@@ -80,12 +82,26 @@ body {
   text-align: left;
 }
 
+footer {
+  background-color:#CC490C;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+  width: 100%;
+  position: fixed;
+  bottom: 0
+}
+.nav-bar-11 {
+  margin-top: 100px;
+}
+
 .list_image{
   float: left;
   width:  360px;
   height: 300px;
   object-fit: cover;
-
+  padding-bottom: 50px;
+  margin-bottom: 100px;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -2827,12 +2843,6 @@ fieldset:disabled a.btn {
   box-shadow: 0 0 0 0.2rem rgba(216, 217, 219, 0.5);
 }
 
-.btn-dark {
-  color: #fff;
-  background-color: #343a40;
-  border-color: #343a40;
-}
-
 .btn-dark:hover {
   color: #fff;
   background-color: #23272b;
@@ -4349,17 +4359,7 @@ input[type="button"].btn-block {
   padding: 0.5rem 1rem;
 }
 
-.navbar .container,
-.navbar .container-fluid, .navbar .container-sm, .navbar .container-md, .navbar .container-lg, .navbar .container-xl {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -ms-flex-align: center;
-  align-items: center;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
+
 
 .navbar-brand {
   display: inline-block;
@@ -4725,8 +4725,14 @@ input[type="button"].btn-block {
   border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
 }
 
+input[type="text"]{
+  padding:10px;
+  margin-left: 20px;
+}
+
 .card-footer {
-  padding: 0.75rem 1.25rem;
+  //padding: 0.75rem 3.25rem;
+  padding-bottom: 20px;
   background-color: rgba(0, 0, 0, 0.03);
   border-top: 1px solid rgba(0, 0, 0, 0.125);
 }
@@ -10182,3 +10188,99 @@ a.text-dark:hover, a.text-dark:focus {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+
+//adding check out form styling
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  margin: 0 -16px;
+}
+
+.col-25 {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+}
+
+.col-50 {
+  -ms-flex: 50%; /* IE10 */
+  flex: 50%;
+}
+
+.col-75 {
+  -ms-flex: 75%; /* IE10 */
+  flex: 75%;
+}
+
+.col-25,
+.col-50,
+.col-75 {
+  padding: 0 16px;
+}
+
+
+.container-form {
+  background-color: #f2f2f2;
+  padding: 5px 40px 15px 20px;
+  margin-left: 30px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+}
+
+input[type=text] {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+label {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.icon-container {
+  margin-bottom: 20px;
+  padding: 7px 0;
+  font-size: 24px;
+}
+
+.btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  width: 20%;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+//Product spotlight header
+.spotlight-header, .spotlight {
+  padding-top: 50px;
+  float: right;
+}
+
+.spotlight-description{
+  float: right;
+}
+
+.spotlight-name {
+  color: #CC490C;
+}
+
+.list-group-homepage {
+  margin-bottom: 30px;
+}
+
+//checkout style
+.container-form {
+  margin-top: 60px;
+  margin-bottom: 40px;
+
+}
+
