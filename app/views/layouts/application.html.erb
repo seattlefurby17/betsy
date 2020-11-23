@@ -38,7 +38,8 @@
               </li>
                 <% if @current_merchant %>
                 <li class="nav-item">
-                  <strong class="nav-link">Welcome <%= @current_merchant.username %></strong>
+            <strong><%= link_to "Welcome #{@current_merchant.username}",
+                                merchant_path(@current_merchant.id), class: "nav-link" %>  </strong>
                 </li>
                 <li class="nav-item">
                   <%= link_to "Add a product", new_product_path(@current_merchant.id),

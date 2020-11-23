@@ -11,21 +11,21 @@
 <!--            <label for="fname"><i class="fa fa-user"></i> Full Name </label>-->
 <!--            <input type="text" id="fname" name="firstname" >-->
             <%= f.label :name do %><i class="fa fa-user"></i> Full Name <% end %>
-            <%= f.text_field :name, placeholder: "Ada Lovelace" %>
+            <%= f.text_field :name, placeholder: "Ada Lovelace" %, required: true>
             <%= f.label :email do %> <i class="fa fa-envelope"></i> Email<% end %>
             <%= f.text_field :email, placeholder: "ada-lovelace@petsy.com", required: true %>
             <%= f.label :address do %><i class="fa fa-address-card-o"></i> Address <% end %>
-            <%= f.text_field :address, placeholder: "542 W. 15th Street" %>
+            <%= f.text_field :address, placeholder: "542 W. 15th Street" %, required: true>
             <%= f.label :city do %><i class="fa fa-institution"></i> City<% end %>
-            <%= f.text_field :city, placeholder: "Seattle" %>
+            <%= f.text_field :city, placeholder: "Seattle", required: true %>
             <div class="row">
               <div class="col-50">
                 <%= f.label :state do %> State <% end %>
-                <%= f.text_field :state, placeholder: "WA" %>
+                <%= f.text_field :state, placeholder: "WA", required: true %>
               </div>
               <div class="col-50">
                 <%= f.label :zip_code do %> Zip <% end %>
-                <%= f.text_field :zip_code, placeholder: "98101" %>
+                <%= f.text_field :zip_code, placeholder: "98101", required: true %>
               </div>
             </div>
           </div>
@@ -41,19 +41,19 @@
             </div>
 
             <%= f.label :card_number do %> Credit card number<% end %>
-            <%= f.text_field :card_number, placeholder: "1111-2222-3333-4444" %>
+            <%= f.text_field :card_number, placeholder: "1111-2222-3333-4444", required: true %>
             <%= f.label :expiration_month do %> Expiration Month<% end %>
-            <%= f.text_field :expiration_month, placeholder: "September" %>
+            <%= f.text_field :expiration_month, placeholder: "September", required: true %>
 
 
             <div class="row">
               <div class="col-50">
                 <%= f.label :expiration_year do %> Expiration Year<% end %>
-                <%= f.text_field :expiration_year, placeholder: "2022" %>
+                <%= f.text_field :expiration_year, placeholder: "2022", required: true %>
               </div>
               <div class="col-50">
                 <%= f.label :security_code do %> Security Code<% end %>
-                <%= f.text_field :security_code, placeholder: "352"%>
+                <%= f.text_field :security_code, placeholder: "352", required: true%>
               </div>
             </div>
           </div>

@@ -34,13 +34,15 @@ class MerchantsController < ApplicationController
         # be to display error messages to make future
         # debugging easier.
         flash[:error] = "Could not create new merchant account: #{merchant.errors.messages}"
-        return redirect_to root_path
+        redirect_to root_path
+        return
       end
     end
 
     # If we get here, we have a valid merchant instance
     session[:merchant_id] = merchant.id
-    return redirect_to root_path
+    redirect_to root_path
+    return
   end
 
   def destroy
