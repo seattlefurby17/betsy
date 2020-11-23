@@ -1,25 +1,30 @@
 <div class="container">
   <h1 class="my-4">pEtsy</h1>
   <div class="row">
-    <div class="list-group-homepage">
-      <div class="list-group">
-        <a href="#" class="list-group-item">Category 1</a>
-        <a href="#" class="list-group-item">Category 2</a>
-        <a href="#" class="list-group-item">Category 3</a>
-      </div>
-  </div>
+<!--    <div class="list-group-homepage">-->
+<!--      <div class="list-group">-->
+<!--        <a href="#" class="list-group-item">Category 1</a>-->
+<!--        <a href="#" class="list-group-item">Category 2</a>-->
+<!--        <a href="#" class="list-group-item">Category 3</a>-->
+<!--      </div>-->
+<!--  </div>-->
 
 <div class = "product-image">
     <h2 class="spotlight_header">
       <span class="spotlight-name">Product Spotlight:</span>
      <strong> <%=@spotlight.name%></strong>
+      <%= image_tag @spotlight.photo_url, class: 'list_image'%>
+
       <p class="spotlight__description">
         <%= @spotlight.description%></h2>
       <h2 class="spotlight__header">
-      <h2> <span class="spotlight-name">Pet of the day</span></h2>
         <!--      need to get this to work to generate random pet pic-->
-        <img src="<%= @spotlight.photo_url %>"/>
-        <%= image_tag 'furby-3.jpg', class: 'list_image'%>
+
+</div>
+    <div>
+      <h2> <span class="spotlight-name">Pet of the day</span></h2>
+      <%= image_tag @churro, class: 'list_image'%>
+
     </div>
     <!-- /.col-lg-9 -->
   </div>
