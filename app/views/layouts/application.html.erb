@@ -36,15 +36,15 @@
               <li class="nav-item">
                 <%= link_to "Products", products_path, class: "nav-link" %>
               </li>
-              <% if Order.find_by(id: @shopper).status == "shopping"  %>
+              <%# if Order.find_by(id: @shopper).status == "shopping"  %>
                 <li class="nav-item">
                   <%= link_to "Show Cart", cart_path, class: "nav-link" %>
                 </li>
-              <% else %>
+              <%# else %>
                 <li class="nav-item">
-                  <%= link_to "Your Order", order_path(@shopper ), class: "nav-link" %>
+                  <%= link_to "Your Orders", orders_path, class: "nav-link" %>
                 </li>
-              <% end %>
+              <%# end %>
                 <% if @current_merchant %>
                 <li class="nav-item">
             <strong><%= link_to "Welcome #{@current_merchant.username}",

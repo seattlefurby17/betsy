@@ -1,7 +1,9 @@
 <h1>Shopping Cart: </h1>
-Your Current ID: <%= @order.id %>
-Your Current Status:  <%= @order.status %>
 
+<% if @order.order_items.empty? %>
+  <h1>Your cart is empty!</h1>
+  <h2><%= link_to "Keep Shopping?", products_path %></h2>
+<% else %>
 <table>
   <tr>
     <th>Item</th>
@@ -25,3 +27,5 @@ Your Current Status:  <%= @order.status %>
 </table>
 
 <%= link_to 'Checkout', checkout_path, class: 'btn btn-primary' %>
+<% end %>
+

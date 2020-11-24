@@ -1,14 +1,31 @@
+<!-- User section -->
+<section>
+<h1>Your Past Orders</h1>
+<% if @orders.empty? %>
+  <h1>You have no orders!</h1>
+<% else %>
+  <ul>
+  <% @orders.each do |order| %>
+      <li><%= link_to "Order ##{order}", order_path(order) %></li>
+  <% end %>
+  </ul>
+<% end %>
+</section>
+<br>
+<!-- Merchant section -->
+<section>
+<% if @current_merchant %>
 <h1>Order Fulfillment:</h1>
-<p>Total Revenue: $<%= @current_merchant.total_revenue  %></p>
-<p> Total Revenue by pending (shopping): $<%= @current_merchant.total_revenue('shopping') %></p>
-<p> Total Revenue by paid (processing): $<%= @current_merchant.total_revenue('processing') %></p>
-<p> Total Revenue by complete: $<%= @current_merchant.total_revenue('complete') %> </p>
-<p> Total Revenue by cancelled: $<%= @current_merchant.total_revenue('cancelled') %> </p>
-<p> Total Number of Orders: <%= @current_merchant.total_num %> </p>
-<p> Total number of orders by pending: <%= @current_merchant.total_num('shopping') %> </p>
-<p> Total number of orders by processing: <%= @current_merchant.total_num('processing') %> </p>
-<p> Total number of orders by complete: <%= @current_merchant.total_num('complete') %> </p>
-<p> Total number of orders by cancelled: <%= @current_merchant.total_num('cancelled') %> </p>
+<p>Total Revenue: <%= number_to_currency(@current_merchant.total_revenue)  %></p>
+<p> Total Revenue by pending (shopping): <%= number_to_currency(@current_merchant.total_revenue('shopping')) %></p>
+<p> Total Revenue by paid (processing): <%= number_to_currency(@current_merchant.total_revenue('processing')) %></p>
+<p> Total Revenue by complete: <%= number_to_currency(@current_merchant.total_revenue('complete')) %> </p>
+<p> Total Revenue by cancelled: <%= number_to_currency(@current_merchant.total_revenue('cancelled')) %> </p>
+<p> Total Number of Orders: <%= number_to_currency(@current_merchant.total_num) %> </p>
+<p> Total number of orders by pending: <%= number_to_currency(@current_merchant.total_num('shopping')) %> </p>
+<p> Total number of orders by processing: <%= number_to_currency(@current_merchant.total_num('processing')) %> </p>
+<p> Total number of orders by complete: <%= number_to_currency(@current_merchant.total_num('complete')) %> </p>
+<p> Total number of orders by cancelled: <%= number_to_currency(@current_merchant.total_num('cancelled')) %> </p>
 
 <h2> Orders: </h2>
 <table width="100%">
@@ -25,7 +42,7 @@
     <td><%= order.id %></td>
     <td><%= order.name %></td>
     <td><%= order.email %></td>
-    <td><%= order.total %></td>
+    <td><%= number_to_currency(order.total) %></td>
     <td><%= link_to "Go", order_path(order), class: 'btn btn-primary' %></td>
     <td><%= order.created_at %></td>
 
@@ -33,3 +50,5 @@
     <% end %>
 </ol>
 </table>
+<% end %>
+</section>
