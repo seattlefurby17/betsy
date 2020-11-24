@@ -9,3 +9,12 @@
 <p> Total number of orders by pending: <%= @current_merchant.total_num('processing') %></p>
 <p> Total number of orders by pending: <%= @current_merchant.total_num('complete') %></p>
 <p> Total number of orders by pending: <%= @current_merchant.total_num('cancelled') %></p>
+
+<h2> Orders: </h2>
+<ol>
+  <%@current_merchant.total_orders.each do |order| %>
+  <li>Created: <%= link_to order.created_at, order_path(order) %></li>
+    <li>Name: <%= order.name %> </li>
+  <li>Email: <%= order.email %> </li>
+    <% end %>
+</ol>

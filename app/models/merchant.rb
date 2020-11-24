@@ -37,5 +37,14 @@ class Merchant < ApplicationRecord
     orders.uniq.compact.count
   end
 
+  def total_orders
+    order_items = products.map { |product| product.order_items }.flatten
+    #collecting the orders, returning the order if the status of the order is equal to the status passed in
+    orders = order_items.map do |item|
+      item.order
+    end
+    return orders
+  end
+
 
 end
