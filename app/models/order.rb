@@ -1,6 +1,6 @@
 class Order < ApplicationRecord
   has_many :order_items
-  has_many :products
+  has_many :products, through: :order_items
 
   # validates_associated :order_items # one way street, infinite loop otherwise
   validates :name, format: { :with => /\A[a-zA-Z]+\z/, :message => "Only letters allowed" }, :allow_nil => true
