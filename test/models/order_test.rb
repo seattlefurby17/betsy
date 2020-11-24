@@ -8,6 +8,8 @@ describe Order do
     @merchant = merchants(:grace)
     @product = Product.create!(name: 'test toy', price: 222, merchant_id: @merchant.id)
     @product1 =Product.create!(name: 'test toy1', price: 111, merchant_id: @merchant.id)
+    @order_item = OrderItem.create!(product_id: @product.id, order_id: @order.id, quantity: 2)
+    @order_item1 = OrderItem.create!(product_id: @product1.id, order_id: @order.id, quantity: 2)
   end
   
   describe 'validations' do
@@ -31,13 +33,23 @@ describe Order do
     it "fails validations when expiration month is greater than 12" do
       @order.expiration_month = 13
       expect(@order.valid?).must_equal false
+      # expect(@order.errors.messages[:expiration_year].include?("Invalid card number")).must_equal true
+    end
+
+    it "fails validations when expiration month is less than current month" do
+      @order.expiration_year = Time.now.year
+      @order.expiration_month = Time.now.month - 1
+      expect(@order.valid?).must_equal false
+      @order.expiration_year_cannot_be_in_the_past
+      expect(@order.errors.messages[:expiration_month].include?("can't be in the past")).must_equal true
     end
 
     it "fails validations when expiration year is less than current year" do
-      @order.expiration_year = Time.now.year
-      @order.expiration_month = Time.now.month - 1
-      puts @order.expiration_year
+      @order.expiration_month = Time.now.month
+      @order.expiration_year = Time.now.year - 1
       expect(@order.valid?).must_equal false
+      @order.expiration_year_cannot_be_in_the_past
+      expect(@order.errors.messages[:expiration_year].include?("can't be in the past")).must_equal true
     end
 
     it "fails validations when zip code is not integer" do
@@ -48,10 +60,6 @@ describe Order do
   end
 
   describe "relationships" do
-    before do 
-      @order_item = OrderItem.create!(product_id: @product.id, order_id: @order.id, quantity: 2)
-      @order_item1 = OrderItem.create!(product_id: @product1.id, order_id: @order.id, quantity: 2)
-    end
 
     it 'an order can have many products through order_items' do 
       expect(@order.products.size).must_equal 2
@@ -76,5 +84,12 @@ describe Order do
     end
   end
 
+  describe 'total' do
+
+    it 'will return the total of an order' do
+      expect(@order.total).must_equal 666
+    end
+
+  end
 
 end

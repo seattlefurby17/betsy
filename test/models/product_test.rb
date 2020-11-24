@@ -80,8 +80,14 @@ describe Product do
 
   end
 
-  # describe 'spotlight' do
+  describe 'spotlight' do
+
+    it 'must be an instance of Product' do
+
+    expect(Product.spotlight).must_be_instance_of Product
+    
+    end
   
-  # end
+  end
 
 end
