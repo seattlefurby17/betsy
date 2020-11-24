@@ -54,12 +54,15 @@
                 </li>
                 <% end %>
               </li>
+              <% if Order.find_by(id: @shopper).status == "shopping"  %>
               <li class="nav-item">
                 <%= link_to "Show Cart", cart_path, class: "nav-link" %>
               </li>
+              <% else %>
               <li class="nav-item">
                 <%= link_to "Your Order", order_path(@shopper ), class: "nav-link" %>
               </li>
+              <% end %>
             </ul>
           </div>
         </div>
