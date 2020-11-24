@@ -8,17 +8,15 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find_by(id: @shopper)
-    # raise
-    if @order.status == "shopping"  #need to get help on this
+    if @order.status == "shopping"
       redirect_to cart_path
       return
     end
-
-    # if @shopper != params[:id]
-    #   flash[:error] = "Something happened"
-    #   redirect_to root_path
+    if @shopper != params[:id].to_i
+      flash[:error] = "Something happened"
+      redirect_to root_path
       # elsif merchant.orders #add more logic to this after show page is done
-    # end
+    end
   end
 
   def cart
