@@ -7,8 +7,8 @@ describe OrdersController do
   end
 
   it "assigns orders" do
-    get orders_path
-    order = orders(:order_one)
+    # get orders_path
+    order = orders(:first_order)
 
     # expect(assigns(:orders)).must_equal [order_one]
     expect(order).must_be_instance_of Order
