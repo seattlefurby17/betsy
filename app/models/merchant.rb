@@ -16,7 +16,7 @@ class Merchant < ApplicationRecord
   end
 
   def total_revenue(status = nil)
-    total = 0
+    #    total = 0
     order_items = products.map { |product| product.order_items }.flatten
     order_items.each do |item|
       next if status && item.order.status != status
@@ -46,5 +46,14 @@ class Merchant < ApplicationRecord
     return orders
   end
 
+  def order_belongs_to_merchant?(order)
+    return false if order.nil?
+
+    order.products.each do |product|
+      return true if self.products.include?(product)
+    end
+
+    return false
+  end
 
 end
