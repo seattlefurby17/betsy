@@ -45,6 +45,10 @@ describe Merchant do
       expect(@merchant.respond_to?(:products)).must_equal true
     end
 
+    # it 'can retire a product' do
+    #   expect (@merchant.destroy(@product)).must_change  
+    # end 
+
   end
 
 end

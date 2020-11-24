@@ -41,7 +41,7 @@ describe Order do
     end
 
     it "fails validations when zip code is not integer" do
-      @order.zip_code = ""
+      @order.zip_code = 'string'
       expect(@order.valid?).must_equal false
     end
 
@@ -54,19 +54,19 @@ describe Order do
     end
 
     it 'an order can have many products through order_items' do 
-      expect(@order.products.count).must_equal 2 
+      expect(@order.products.size).must_equal 2
       @order.products.each do |product|
         expect(product).must_be_instance_of Product
       end
-      
+
     end
-    
+
     it 'an order can have many order_items' do
-      expect(@order.order_items.count).must_equal 2 
+      expect(@order.order_items.count).must_equal 2
       @order.order_items.each do |orderitem|
         expect(orderitem).must_be_instance_of OrderItem
       end
-    
+
     end
 
     it 'an invalid order_item will not be add to an order' do
@@ -76,5 +76,5 @@ describe Order do
     end
   end
 
-  
+
 end

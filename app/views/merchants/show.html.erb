@@ -2,16 +2,21 @@
 <aside><em>You can reach this seller at <%= @merchant.email %></em></aside>
 
 <h2>Products sold:</h2>
-<table class="products-table">
+<table class="products-table" width = 80%>
   <tr>
     <th>Product Name</th>
     <th>Product Page</th>
+    <% if @merchant.id == session[:merchant_id] %>
+    <th> Edit Product </th> 
+    <%end%>
   </tr>
   <% @merchant.products.each do |product| %>
   <tr>
     <td><%= product.name %></td>
-    <td><%= link_to "View Page", product_path(product) %></td>
+    <td><%= link_to "View Product", product_path(product), class: 'btn btn-primary' %></td>
+    <% if @merchant.id == session[:merchant_id] %>
+    <td><%= link_to "Edit Product", edit_product_path(product), class: 'btn btn-primary' %></td> 
+    <%end%>
   </tr>
-
   <% end %>
 </table>

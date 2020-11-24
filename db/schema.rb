@@ -10,18 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_21_222846) do
+ActiveRecord::Schema.define(version: 2020_11_23_232103) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-
-  create_table "images", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -57,6 +51,8 @@ ActiveRecord::Schema.define(version: 2020_11_21_222846) do
     t.integer "expiration_year"
     t.integer "security_code"
     t.integer "zip_code"
+    t.string "state"
+    t.string "city"
   end
 
   create_table "products", force: :cascade do |t|

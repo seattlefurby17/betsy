@@ -12,11 +12,11 @@ merchants = Merchant.create!([{ username: "coolperson", email: "coolperson@cool.
                               { username: "sunshinerainbow", email: "sunshine@rainbow.com", provider: "github", uid: "010183"},
                               { username: "awesomesauce", email: "awesome@sauce.com", provider: "github", uid: "97467"}])
 
-products = Product.create!([{ name: "Furby", description: "A toy from the 90s", price: 9.99,
+products = Product.create!([{ name: "Furby", description: "A toy from the 90s. It resembles a hamster or owl-like creature...everyone wanted one of these for Christmas. ", price: 9.99,
                               stock: 200, merchant: merchants.first, photo_url: 'furby-3.jpg'},
                             { name: "Tamagotchi", description: "The Tamagotchi is a handheld digital pet that was created in Japan. ", price: 15.30,
                               stock: 150, merchant: Merchant.find_by(username: "sunshinerainbow"), photo_url: 'Tamagotchi.jpg' },
-                            { name: "Poo Chi", description: "Poo-Chi, one of the first generations of robopet toys, is a robot dog designed by Samuel James Lloyd and Matt Lucas, ",
+                            { name: "Poo Chi", description: "Poo-Chi, one of the first generations of robopet toys, is a robot dog designed by Samuel James Lloyd and Matt Lucas.",
                               price: 5.30, stock: 100, merchant: Merchant.find_by(username: "testuser"), photo_url: 'Poo-Chi.jpg' },
                             { name: "Neopets", description: "Users can own virtual pets, and buy virtual items for them using one of two virtual currencies",
                               price: 2.00, stock: 100, merchant: Merchant.find_by(username: "wintergreen"), photo_url: 'hey_DUMBCAT.png' },

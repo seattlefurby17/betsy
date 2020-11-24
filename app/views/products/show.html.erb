@@ -14,5 +14,7 @@
 
   <% if @current_merchant&.id == @product.merchant.id %>
     <%= link_to "Edit Product", edit_product_path(@product), class: 'btn btn-primary' %>
-  <% end %>
+    <%= link_to @product.retired ? 'Re-list product' : 'Retire product', retire_product_path(@product),
+                method: :delete, class: 'btn btn-primary' %>
+<% end %>
 </ul>
