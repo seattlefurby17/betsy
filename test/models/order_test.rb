@@ -9,6 +9,7 @@ describe Order do
     @product = Product.create!(name: 'test toy', price: 222, merchant_id: @merchant.id)
     @product1 =Product.create!(name: 'test toy1', price: 111, merchant_id: @merchant.id)
   end
+  
   describe 'validations' do
 
     it 'should be a valid order when all fields are filled' do
