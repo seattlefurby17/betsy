@@ -1,5 +1,5 @@
 class MerchantsController < ApplicationController
-  before_action :require_login, only: [ :dashboard :manage_orders, :manage_products, :logout]
+  before_action :require_login, only: [ :dashboard, :manage_orders, :manage_products, :logout]
   
   def index
     @merchants = Merchant.all

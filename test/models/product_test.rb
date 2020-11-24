@@ -6,6 +6,10 @@ describe Product do
         "github", uid: "832943")
     @product = Product.create(name: "test name", description: "test description", price: 4.55,
                               photo_url: "gettyimages.com", stock: 10, merchant_id: @merchant.id)
+    # @product1 = products(:product_one)
+    @order1 = orders(:first_order)
+    @order2 = orders(:second_order)
+    
   end
 
   describe "validations" do
@@ -48,23 +52,29 @@ describe Product do
   describe "relationships" do
     it 'belongs to a merchant' do
      expect(@product).must_respond_to :merchant
-     expect(@product.merchant).must_be_an_instance_of Merchant 
+     expect(@product.merchant).must_be_instance_of Merchant 
      
     end
 
-    it 'has many products' do
-      expect(@order.products.count).must_equal 2 
-      @order.products.each do |product|
+    it 'has many orders through order_items' do
+      # expect(@product.orders.size).must_equal 2 # how do we add a product to order?
+      products.each do |product|
         expect(product).must_be_instance_of Product
       end
 
     end
 
     it "has many order items" do
-    
-      expect(@product.order_items)
-    
+      expect(@product.order_items.count).must_equal 2
+      @product.order_items.each do |orderitem|
+        expect(orderitem).must_be_instance_of OrderItem
+      end
     end
 
   end
+
+  # describe 'spotlight' do
+  
+  # end
+
 end
