@@ -8,7 +8,7 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find_by(id: params[:id].to_i)
-    if @current_merchant.order_belongs_to_merchant?(@order)
+    if @current_merchant&.order_belongs_to_merchant?(@order)
       # Merchant can view this order page
       return
     end

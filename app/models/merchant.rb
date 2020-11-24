@@ -16,7 +16,7 @@ class Merchant < ApplicationRecord
   end
 
   def total_revenue(status = nil)
-    #    total = 0
+    total = 0
     order_items = products.map { |product| product.order_items }.flatten
     order_items.each do |item|
       next if status && item.order.status != status
@@ -55,5 +55,18 @@ class Merchant < ApplicationRecord
 
     return false
   end
+
+  # I wrote this not realizing Ida had written a similar method, lol
+  # def orders_belonging_to_merchant
+  #   orders = []
+  #
+  #   self.products.each do |product|
+  #     product.order_items.each do |order_item|
+  #       orders << order_item.order_id
+  #     end
+  #   end
+  #
+  #   return orders.uniq
+  # end
 
 end

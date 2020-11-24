@@ -19,6 +19,16 @@ class Order < ApplicationRecord
     end
   end
 
+  def total
+    total = 0
+    self.order_items.each do |order_item|
+      total += order_item.quantity * Product.find_by(id: order_item.product_id).price
+    end
+
+    return total
+
+  end
+
 
 
 

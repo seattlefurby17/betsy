@@ -11,10 +11,25 @@
 <p> Total number of orders by cancelled: <%= @current_merchant.total_num('cancelled') %> </p>
 
 <h2> Orders: </h2>
-<ol>
+<table width="100%">
+  <tr>
+    <td>Order ID</td>
+    <td>Customer Name</td>
+    <td>Email</td>
+    <td>Order Total</td>
+    <td>Order Page</td>
+    <td>Created</td>
+  </tr>
   <%@current_merchant.total_orders.each do |order| %>
-  <li>Created: <%= link_to order.created_at, order_path(order) %></li>
-    <li>Name: <%= order.name %> </li>
-  <li>Email: <%= order.email %> </li>
+  <tr>
+    <td><%= order.id %></td>
+    <td><%= order.name %></td>
+    <td><%= order.email %></td>
+    <td><%= order.total %></td>
+    <td><%= link_to "Go", order_path(order), class: 'btn btn-primary' %></td>
+    <td><%= order.created_at %></td>
+
+  </tr>
     <% end %>
 </ol>
+</table>
