@@ -1,8 +1,14 @@
 class OrdersController < ApplicationController
-  before_action :require_login, only: :index
 
+  before_action :find_order, except: [:index, :show]
   def index
     # @orders = @current_merchant.orders
+    @orders = session[:orders]
+    # To not break existing carts
+    if @orders.nil?
+      session[:orders] = []
+      @orders = session[:orders]
+    end
 
   end
 
@@ -11,18 +17,13 @@ class OrdersController < ApplicationController
     if @current_merchant&.order_belongs_to_merchant?(@order)
       # Merchant can view this order page
       return
-    end
-
-    @order = Order.find_by(id: @shopper)
-
-    if @order.status == "shopping"
-      redirect_to cart_path
+    elsif @orders.include?(@order.id)
+      # User can view one of their past orders
       return
-    end
-
-    if @shopper == params[:id].to_i
-      # This is shopper's paid order
-      return
+    elsif @order.id == @shopper
+      # User is viewing order in progress
+        redirect_to cart_path
+        return
     else
       # Unauthorized
       flash[:error] = "You tried to view an order that doesn't belong to you"
@@ -31,21 +32,23 @@ class OrdersController < ApplicationController
   end
 
   def cart
-    @order = Order.find_by(id: @shopper)
   end
 
   def check_out # Loads the checkout form
-    @order = Order.find_by(id: @shopper)
+    if @order.order_items.empty?
+      flash[:error] = "Your cart is empty!"
+      redirect_to cart_path
+    end
   end
 
   def process_order # Customer clicked purchase button, process order
-    @order = Order.find_by(id: @shopper)
     @order.update(order_params)
     @order.status = 'paid'
     
     if @order.save
-
-      flash[:success] = "Success"
+      session[:orders] << @order.id # Add order ID to list of orders
+      session[:shopper_id] = Order.create!(status: "shopping").id # Start a new cart/order for user
+      flash[:success] = "Order placed successfully, please wait two decades for processing"
       redirect_to order_path(@shopper)
     else
       @order.errors.each do |type, err|
@@ -58,6 +61,10 @@ class OrdersController < ApplicationController
 
 
   private
+
+  def find_order
+    @order = Order.find_by(id: @shopper)
+  end
   
   def order_params
     return params.require(:order).permit(:name, :email, :address, :card_number, 

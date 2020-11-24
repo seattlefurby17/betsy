@@ -1,3 +1,21 @@
+<!-- User section -->
+<section>
+<h1>Your Past Orders</h1>
+<% if @orders.empty? %>
+  <h1>You have no orders!</h1>
+<% else %>
+  <ul>
+  <% @orders.each do |order| %>
+      <li><%= link_to "Order ##{order}", order_path(order) %></li>
+  <% end %>
+  </ul>
+<% end %>
+</section>
+
+<br>
+<!-- Merchant section -->
+<section>
+<% if @current_merchant %>
 <h1>Order Fulfillment:</h1>
 <p>Total Revenue: $<%= @current_merchant.total_revenue  %></p>
 <p> Total Revenue by pending (shopping): $<%= @current_merchant.total_revenue('shopping') %></p>
@@ -33,3 +51,5 @@
     <% end %>
 </ol>
 </table>
+<% end %>
+</section>
