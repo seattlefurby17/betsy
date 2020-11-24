@@ -25,8 +25,8 @@ class OrdersController < ApplicationController
   def process_order # Customer clicked purchase button, process order
     @order = Order.find_by(id: @shopper)
     @order.update(order_params)
-    # raise
     @order.status = 'paid'
+    
     if @order.save
       flash[:success] = "Success"
       redirect_to order_path(@shopper)
