@@ -19,13 +19,7 @@ class Order < ApplicationRecord
     end
   end
 
-  # def total
-  #   sum = 0
-  #   order_items.each do |order_item|
-  #     sum += (order_item.product.price * order_item.quantity)
-  #   end
-  #   return sum
-  # end
+
 
 
 end
