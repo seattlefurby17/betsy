@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  before_action :require_login, only: :index
 
   def index
     # @orders = @current_merchant.orders

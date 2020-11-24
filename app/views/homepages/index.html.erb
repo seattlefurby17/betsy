@@ -13,8 +13,9 @@
     <h2 class="spotlight_header">
       <span class="spotlight-name">Product Spotlight:</span>
      <strong> <%=@spotlight.name%></strong>
+      <% if @spotlight&.photo_url %>
       <%= image_tag @spotlight.photo_url, class: 'list_image_homepage'%>
-
+      <% end %>
       <p class="spotlight__description">
         <%= @spotlight.description%></h2>
       <h2 class="spotlight__header">
