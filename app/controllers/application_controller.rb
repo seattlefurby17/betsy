@@ -20,7 +20,9 @@ class ApplicationController < ActionController::Base
     end
     @shopper = session[:shopper_id]
     @orders = session[:orders]
+
     return @shopper
 
   end
+
 end
