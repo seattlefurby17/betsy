@@ -48,22 +48,12 @@ describe Product do
   describe "relationships" do
     it 'belongs to a merchant' do
      expect(@product).must_respond_to :merchant
-     expect(@product.merchant).must_be_an_instance_of Merchant 
+     expect(@product.merchant).must_be_instance_of Merchant
      
     end
 
-    it 'has many products' do
-      expect(@order.products.count).must_equal 2 
-      @order.products.each do |product|
-        expect(product).must_be_instance_of Product
-      end
-
-    end
-
     it "has many order items" do
-    
-      expect(@product.order_items)
-    
+      expect(@product.respond_to?(:order_items)).must_equal true
     end
 
   end
