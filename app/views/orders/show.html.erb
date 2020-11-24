@@ -21,8 +21,17 @@ Your Order ID: <%= @order.id %>
 
 <h2>Shopper details</h2>
 <ul>
-  <li><%= @order.name %> </li>
-  <li><%= @order.name %> </li>
+  <li>Name: <%= @order.name %> </li>
+  <li>Email: <%= @order.email %> </li>
+  <li>Address: <%= @order.address %> </li>
+  <li>Last 4 of card number: <%= @order.card_number.to_s[-4..-1] %> </li>
+  <li>Expiration month: <%= @order.expiration_month %> </li>
+  <li>Expiration year: <%= @order.expiration_year %> </li>
+  <li>Zip code: <%= @order.zip_code %> </li>
+  <li>State: <%= @order.state %> </li>
+  <li>City: <%= @order.city %> </li>
+
+
 
 </ul>
 
