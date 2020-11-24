@@ -39,4 +39,12 @@ describe Merchant do
 
   end
 
+  describe 'relations' do
+
+    it 'has many products' do
+      expect(@merchant.respond_to?(:products)).must_equal true
+    end
+
+  end
+
 end
