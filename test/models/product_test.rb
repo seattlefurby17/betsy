@@ -47,18 +47,24 @@ describe Product do
 
   describe "relationships" do
     it 'belongs to a merchant' do
-      Merchant.all.each do |merchant|
-        if merchant.id == @product.merchant_id
-          expect(@product.merchant_id).must_equal merchant.id
-        end
-      end
+     expect(@product).must_respond_to :merchant
+     expect(@product.merchant).must_be_an_instance_of Merchant 
+     
     end
 
-    # it "has many order items" do
-    #
-    #   expect(@product.order_items)
-    #
-    # end
+    it 'has many products' do
+      expect(@order.products.count).must_equal 2 
+      @order.products.each do |product|
+        expect(product).must_be_instance_of Product
+      end
+
+    end
+
+    it "has many order items" do
+    
+      expect(@product.order_items)
+    
+    end
 
   end
 end
