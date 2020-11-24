@@ -9,7 +9,7 @@ describe Product do
     # @product1 = products(:product_one)
     @order1 = orders(:first_order)
     @order2 = orders(:second_order)
-    
+
   end
 
   describe "validations" do
@@ -69,6 +69,8 @@ describe Product do
       @product.order_items.each do |orderitem|
         expect(orderitem).must_be_instance_of OrderItem
       end
+
+      expect(@product.respond_to?(:order_items)).must_equal true
     end
 
   end
