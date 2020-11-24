@@ -1,5 +1,6 @@
 class MerchantsController < ApplicationController
-  before_action :require_login, only: [ :manage_orders, :manage_products, :logout]
+  before_action :require_login, only: [ :dashboard :manage_orders, :manage_products, :logout]
+  
   def index
     @merchants = Merchant.all
   end
@@ -45,11 +46,12 @@ class MerchantsController < ApplicationController
     return
   end
 
+  def dashboard; end
+
   def manage_orders; end
 
   def manage_products; end
 
-  
   def destroy # same as logout
     session[:merchant_id] = nil
     flash[:success] = "Successfully logged out!"
