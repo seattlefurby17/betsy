@@ -46,5 +46,27 @@ class Merchant < ApplicationRecord
     return orders
   end
 
+  def order_belongs_to_merchant?(order)
+    return false if order.nil?
+
+    order.products.each do |product|
+      return true if self.products.include?(product)
+    end
+
+    return false
+  end
+
+  # I wrote this not realizing Ida had written a similar method, lol
+  # def orders_belonging_to_merchant
+  #   orders = []
+  #
+  #   self.products.each do |product|
+  #     product.order_items.each do |order_item|
+  #       orders << order_item.order_id
+  #     end
+  #   end
+  #
+  #   return orders.uniq
+  # end
 
 end

@@ -7,18 +7,27 @@ class OrdersController < ApplicationController
   end
 
   def show
+    @order = Order.find_by(id: params[:id].to_i)
+    if @current_merchant&.order_belongs_to_merchant?(@order)
+      # Merchant can view this order page
+      return
+    end
+
     @order = Order.find_by(id: @shopper)
-    # raise
-    if @order.status == "shopping"  #need to get help on this
+
+    if @order.status == "shopping"
       redirect_to cart_path
       return
     end
 
-    # if @shopper != params[:id]
-    #   flash[:error] = "Something happened"
-    #   redirect_to root_path
-      # elsif merchant.orders #add more logic to this after show page is done
-    # end
+    if @shopper == params[:id].to_i
+      # This is shopper's paid order
+      return
+    else
+      # Unauthorized
+      flash[:error] = "You tried to view an order that doesn't belong to you"
+      redirect_to root_path
+    end
   end
 
   def cart
@@ -35,6 +44,7 @@ class OrdersController < ApplicationController
     @order.status = 'paid'
     
     if @order.save
+
       flash[:success] = "Success"
       redirect_to order_path(@shopper)
     else
