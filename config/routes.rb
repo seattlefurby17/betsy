@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :homepages, only: :index
   resources :merchants, except: [:new, :edit, :update]
   resources :order_items, only: :destroy
-  resources :orders, only: :show
+  resources :orders, only: [:show, :index]
   resources :products, except: :destroy # Called retire for clarity
   delete '/products/:id', to: 'products#retire', as: 'retire_product'
 

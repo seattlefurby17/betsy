@@ -1,6 +1,6 @@
 class Order < ApplicationRecord
   has_many :order_items
-  has_many :product
+  has_many :products
 
   # validates_associated :order_items # one way street, infinite loop otherwise
   validates :name, format: { :with => /\A[a-zA-Z]+\z/, :message => "Only letters allowed" }, :allow_nil => true
@@ -18,5 +18,8 @@ class Order < ApplicationRecord
       errors.add(:expiration_month, "can't be in the past")
     end
   end
+
+
+
 
 end
