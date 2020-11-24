@@ -4,6 +4,7 @@ describe OrdersController do
   before do
     perform_login
   end
+  
   it "must get index" do
     get orders_path
     must_respond_with :success
