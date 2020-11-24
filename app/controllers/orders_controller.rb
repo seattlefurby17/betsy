@@ -1,6 +1,17 @@
 class OrdersController < ApplicationController
   def show
     @order = Order.find_by(id: @shopper)
+    # raise
+    if @order.status == "shopping"  #need to get help on this
+      redirect_to cart_path
+      return
+    end
+
+    # if @shopper != params[:id]
+    #   flash[:error] = "Something happened"
+    #   redirect_to root_path
+      # elsif merchant.orders #add more logic to this after show page is done
+    # end
   end
 
   def cart
@@ -14,11 +25,20 @@ class OrdersController < ApplicationController
   def process_order # Customer clicked purchase button, process order
     @order = Order.find_by(id: @shopper)
     @order.update(order_params)
-    @order.status = 'processing'
-    @order.save
-    redirect_to order_path
     # raise
+    @order.status = 'paid'
+    if @order.save
+      flash[:success] = "Success"
+      redirect_to order_path(@shopper)
+    else
+      @order.errors.each do |type, err|
+        flash.now[type] = "Something went wrong: #{type}: #{err}"
+      end
+      render :check_out
+    end
   end
+
+
 
   private
   
