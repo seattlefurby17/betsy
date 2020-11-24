@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
   def process_order # Customer clicked purchase button, process order
     @order = Order.find_by(id: @shopper)
     @order.update(order_params)
-    @order.status = 'processing'
+    @order.status = 'paid'
     @order.save
     redirect_to order_path
     # raise
