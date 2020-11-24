@@ -1,25 +1,26 @@
-<table class='table table-light'>
-    <tr>
-        <th>Order Number</th>
-        <th>Customer</th>
-        <th>Order Items</th>
-        <th>Total Cost</th>
-        <th>Status</th>
-        <th></th>
-    </tr>
-
-    <tbody>
-        <% @current_merchant.orders.uniq.each do |order|%>
-        <tr>
-            <td><%= link_to "##{order.id}", order_path(order) %></td>
-            <td><%= order.order_belongs_to_merchant?.count %></td>
-            <td><%= order.total_revenue %></td>
-            <td><%= order.status %></td>
-            <% if order.status == 'processing' %>
-                <td><%= button_to "Processing Order", process_order_path(order) %></td>
-            <% end %>
-        </tr>
-        <% end %>
-    </tbody>
-</table> 
+# Ida worked on an order dashboard for merchants in orders/index
+#<table class='table table-light'>
+#    <tr>
+#        <th>Order Number</th>
+#        <th>Customer</th>
+#        <th>Order Items</th>
+#        <th>Total Cost</th>
+#        <th>Status</th>
+#        <th></th>
+#    </tr>
+#
+#    <tbody>
+#        <% @current_merchant.orders.uniq.each do |order|%>
+#        <tr>
+#            <td><%= link_to "##{order.id}", order_path(order) %></td>
+#            <td><%= order.order_belongs_to_merchant?.count %></td>
+#            <td><%= order.total_revenue %></td>
+#            <td><%= order.status %></td>
+#            <% if order.status == 'processing' %>
+#                <td><%= button_to "Processing Order", process_order_path(order) %></td>
+#            <% end %>
+#        </tr>
+#        <% end %>
+#    </tbody>
+#</table> 
 
