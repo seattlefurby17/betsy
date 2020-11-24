@@ -44,6 +44,7 @@ class OrdersController < ApplicationController
     @order.status = 'paid'
     
     if @order.save
+
       flash[:success] = "Success"
       redirect_to order_path(@shopper)
     else

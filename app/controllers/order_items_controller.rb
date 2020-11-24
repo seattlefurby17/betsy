@@ -2,6 +2,11 @@ class OrderItemsController < ApplicationController
 
   def add_to_cart
     @product = Product.find_by(id: params[:id])
+    if @product.retired
+      flash[:error] = "That product is retired!"
+      redirect_to products_path
+      return
+    end
     # Check if the item exists
     if @order_item = OrderItem.find_by(product_id: @product.id, order_id: @shopper)
       # Add to the existing quantity instead of creating a new item
