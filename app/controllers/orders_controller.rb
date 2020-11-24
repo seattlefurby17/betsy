@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
-
   before_action :find_order, except: [:index, :show]
+
   def index
     # @orders = @current_merchant.orders
     @orders = session[:orders]
@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find_by(id: params[:id].to_i)
-    if @current_merchant&.order_belongs_to_merchant?(@order)
+    if @current_merchant&.order_belongs_to_merchant?(@order) #check for nil before calling the method
       # Merchant can view this order page
       return
     elsif @orders.include?(@order.id)
@@ -57,8 +57,6 @@ class OrdersController < ApplicationController
       render :check_out
     end
   end
-
-
 
   private
 
