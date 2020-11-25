@@ -38,19 +38,22 @@ class OrderItemsController < ApplicationController
 
   def edit_quantity
     @product = Product.find_by(id: params[:id])
+    if params["quantity"].to_i <= 0
+      flash[:error] = "Invalid quantity given"
+    end
     # If the item exists
-    if @order_item = OrderItem.find_by(product_id: @product.id, order_id: @shopper)
+    if @order_item = OrderItem.find_by(product_id: @product&.id, order_id: @shopper)
       # Alter the order quantity
       @order_item.change_quantity(params["quantity"].to_i)
       if @order_item.save.nil?
         # Save failed
-        flash["error"] = "Invalid quantity specified"
+        flash[:error] = "Unable to edit quantity"
       else
-        flash["success"] = "Quantity updated!"
+        flash[:success] = "Quantity updated!"
       end
     else
       # Item not found
-      flash["error"] = "Item to edit quantity not found"
+      flash[:error] = "Item to edit quantity not found"
     end
 
     redirect_to cart_path
@@ -61,10 +64,8 @@ class OrderItemsController < ApplicationController
     @product = Product.find_by(id: params[:id])
     if @order_item = OrderItem.find_by(product_id: @product&.id, order_id: @shopper)
       @order_item.destroy
-
-      else @order_item.nil?
+    else
         flash["error"] = "Could not delete product"
-        return
     end
 
     redirect_to cart_path

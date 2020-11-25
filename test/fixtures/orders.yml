@@ -7,6 +7,7 @@ first_order:
   expiration_year: 2022
   security_code: 123
   zip_code: 11221
+  status: 'shopping'
 
 second_order:
   name: 'lovelace' 
