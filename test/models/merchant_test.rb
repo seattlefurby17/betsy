@@ -58,12 +58,31 @@ describe Merchant do
 
       expect(@merchant.total_revenue()).must_equal (4.55 * 2) + (9.99 * 2)
     end
+
+    it "must calculate total revenue for a given status" do
+      orders.first.update(status: 'processing')
+      expect(@merchant.total_revenue('processing')).must_equal 29.08
+    end
+
+    it 'returns 0 when there are no orders for a given status' do
+      expect(@merchant.total_revenue('shipped')).must_equal 0
+    end
   end
 
   describe 'total_num' do
     it 'returns the number of orders a merchant has' do
       expect(@merchant.total_num).must_equal 1
     end
+
+    it "must calculate total number of orders for a given status" do
+      orders.first.update(status: 'processing')
+      expect(@merchant.total_num('processing')).must_equal 1
+    end
+
+    it 'returns 0 when there are no orders for a given status' do
+      expect(@merchant.total_num('shipped')).must_equal 0
+    end
+
   end
 
   describe 'total_order' do
@@ -75,6 +94,11 @@ describe Merchant do
       end
       expect(@merchant.total_num).must_equal 2
     end
+    it "must calculate total number of orders for a given status" do
+      orders.first.update(status: 'processing')
+      expect(@merchant.total_num('processing')).must_equal 1
+    end
+
   end
 
   describe 'order_belongs_to_merchant?' do
