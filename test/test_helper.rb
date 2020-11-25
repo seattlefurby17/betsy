@@ -1,17 +1,20 @@
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 require 'rails/test_help'
+require 'simplecov'
+SimpleCov.start 'rails' do
+  add_filter '/bin/'
+  add_filter '/db/'
+  add_filter '/jobs/'
+  add_filter '/mailers/'
+  add_filter '/helpers/'
+  add_filter '/channels/'
+  add_filter '/controllers/application_controller.rb'
+  add_filter '/test/' # for minitest
+end
 require "minitest/rails"
 require "minitest/reporters"  # for Colorized output
-require 'simplecov'
-SimpleCov.start 'rails' do 
-  add_filter 'test'  
-  add_filter 'mailer'
-  add_filter 'job'
-  add_filter 'helper'
-  add_filter 'channel'
 
-end
 
 Minitest::Reporters.use!(
   Minitest::Reporters::SpecReporter.new,

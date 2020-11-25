@@ -51,4 +51,10 @@ describe Merchant do
 
   end
 
+  describe 'total_revenue' do
+    # it 'must properly calculate the total revenue for the order' do
+    #   expect(@merchant.total_revenue() 
+    # end
+  end
+
 end
