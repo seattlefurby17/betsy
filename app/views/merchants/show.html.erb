@@ -1,10 +1,10 @@
-<h1><%= @merchant.username %>'s store</h1>
-<aside><em>You can reach this seller at <%= @merchant.email %></em></aside>
+<h2 class = "spotlight-other"><strong><%= @merchant.username %>'s store </strong></h2>
+<aside class ="spotlight-padding"><em>You can reach this seller at <%= @merchant.email %></em></aside>
 
-<h2>Products sold:</h2>
+<h2 class = "spotlight-padding">Products sold:</h2>
 <table class="products-table" width = 80%>
   <tr>
-    <th>Product Name</th>
+    <th class = "spotlight-padding">Product Name</th>
     <th>Product Page</th>
     <% if @merchant.id == session[:merchant_id] %>
     <th> Edit Product </th> 
@@ -12,7 +12,7 @@
   </tr>
   <% @merchant.products.each do |product| %>
   <tr>
-    <td><%= product.name %></td>
+    <td class = "spotlight-padding"><%= product.name %></td>
     <td><%= link_to "View Product", product_path(product), class: 'btn btn-primary' %></td>
     <% if @merchant.id == session[:merchant_id] %>
     <td><%= link_to "Edit Product", edit_product_path(product), class: 'btn btn-primary' %></td> 

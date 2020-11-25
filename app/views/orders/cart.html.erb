@@ -1,8 +1,8 @@
-<h1>Shopping Cart: </h1>
+<h2 class = "spotlight-other"><strong>Shopping Cart:</strong></h2>
 
 <% if @order.order_items.empty? %>
-  <h1>Your cart is empty!</h1>
-  <h2><%= link_to "Keep Shopping?", products_path %></h2>
+  <h3 class ="spotlight-padding">Your cart is empty!</h3>
+  <h3 class = "spotlight-padding"><%= link_to "Keep Shopping?", products_path %></h3>
 <% else %>
 <table>
   <tr>
