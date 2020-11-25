@@ -113,6 +113,12 @@ describe ProductsController do
       get edit_product_path(product.id)
       must_respond_with :redirect
     end
+
+    it 'fails for an invalid product' do
+      perform_login(merchant)
+      get edit_product_path(-1)
+      must_respond_with :redirect
+    end
   end
 
   describe "update" do
@@ -156,6 +162,14 @@ describe ProductsController do
         patch product_path(@id), params: updated_product_hash
       }.wont_change "product.name"
     end
+
+    it 'won\'t update if product isn\'t found' do
+      perform_login(merchant)
+      patch product_path(-1), params: updated_product_hash
+      expect(flash[:error]).must_include "Cannot"
+      must_respond_with :redirect
+    end
+
   end
 
   describe 'retire' do

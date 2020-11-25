@@ -53,12 +53,44 @@ describe OrderItemsController do
     expect(flash[:error]).must_equal "Product to add to cart not found"
   end
 
+  describe 'edit quantity' do
+    it 'can alter quantity of an order item' do
+      @product = products(:product_one)
+      patch add_cart_path(id: @product.id, quantity: 1)
+      patch edit_quantity_path(id: @product.id, quantity: 2)
+      @order_item = OrderItem.find_by(product_id: @product.id, order_id: @shopper)
+      expect(@order_item.quantity).must_equal 2
+    end
+
+    it 'fails to alter an invalid quantity' do
+      @product = products(:product_one)
+      patch add_cart_path(id: @product.id, quantity: 1)
+      patch edit_quantity_path(id: @product.id, quantity: -1)
+      expect(flash[:error]).must_include "Invalid"
+      @order_item = OrderItem.find_by(product_id: @product.id, order_id: @shopper)
+      expect(@order_item.quantity).must_equal 1
+
+    end
+
+    it 'can\'t edit quantity of invalid object' do
+      patch edit_quantity_path(id: 3939, quantity: 1)
+      expect(flash[:error]).must_include "not found"
+    end
+  end
+
   describe 'destroy' do
 
     it "returns error when unable to delete product" do
 
-      delete order_item_path(3)
+      expect { delete order_item_path(3) }.wont_change "@order.order_items.count"
       expect(flash[:error]).must_equal "Could not delete product"
+      must_respond_with :redirect
+    end
+
+    it 'successfully deletes a product' do
+      @product = products(:product_one)
+      patch add_cart_path(id: @product.id, quantity: 1)
+      expect { delete order_item_path(@product.id) }.must_change "@order.order_items.count", -1
     end
   end
 

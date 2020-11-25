@@ -100,6 +100,12 @@ describe Merchant do
     it 'checks if an order belongs to a merchant' do
       expect(@merchant.order_belongs_to_merchant?(@order)).must_equal true
     end
+
+    it 'checks if an order belongs to a merchant' do
+      @other_order = orders(:second_order)
+      @order_item = OrderItem.create!(product_id: products(:product_two).id, order_id: @other_order.id, quantity: 2)
+      expect(@merchant.order_belongs_to_merchant?(@other_order)).must_equal false
+    end
   end
 
 end

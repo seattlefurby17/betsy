@@ -49,7 +49,7 @@ class OrdersController < ApplicationController
     @order.update(order_params)
     @order.status = 'paid'
     
-    if @order.save!
+    if @order.save
       session[:orders] << @order.id # Add order ID to list of orders
       session[:shopper_id] = Order.create!(status: "shopping").id # Start a new cart/order for user
       flash[:success] = "Order placed successfully, please wait two decades for processing"
