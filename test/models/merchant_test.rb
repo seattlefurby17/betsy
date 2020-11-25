@@ -2,10 +2,16 @@ require "test_helper"
 
 describe Merchant do
   before do
-    @merchant = Merchant.create(username: "test merchant", email: "coolperson@cool.com", provider:
-        "github", uid: "832943")
+    @merchant = merchants(:ada)
     @product = Product.create(name: "test name", description: "test description", price: 4.55,
                               photo_url: "gettyimages.com", stock: 10, merchant_id: @merchant.id)
+
+    @product1 = products(:product_one)
+    @order = orders(:first_order)
+
+    @order_item = OrderItem.create!(product_id: @product.id, order_id: @order.id, quantity: 2)
+    @order_item1 = OrderItem.create!(product_id: @product1.id, order_id: @order.id, quantity: 2)
+    
   end
 
   describe "validations" do
@@ -32,7 +38,7 @@ describe Merchant do
     end
 
     it "fails validation when email is not unique" do
-      invalid_email = Merchant.create(username: "test merchant", email: "coolperson@cool.com", provider:
+      invalid_email = Merchant.create(username: "test merchant", email: "ada@adadevelopersacademy.org", provider:
           "github", uid: "832943")
       expect(invalid_email.valid?).must_equal false
     end
@@ -52,9 +58,10 @@ describe Merchant do
   end
 
   describe 'total_revenue' do
-    # it 'must properly calculate the total revenue for the order' do
-    #   expect(@merchant.total_revenue() 
-    # end
+    it 'must properly calculate the total revenue for the order' do
+
+      expect(@merchant.total_revenue()).must_equal (4.55 * 2) + (9.99 * 2)
+    end
   end
 
 end
