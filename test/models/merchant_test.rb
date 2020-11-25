@@ -51,16 +51,35 @@ describe Merchant do
       expect(@merchant.respond_to?(:products)).must_equal true
     end
 
-    # it 'can retire a product' do
-    #   expect (@merchant.destroy(@product)).must_change  
-    # end 
-
   end
 
   describe 'total_revenue' do
     it 'must properly calculate the total revenue for the order' do
 
       expect(@merchant.total_revenue()).must_equal (4.55 * 2) + (9.99 * 2)
+    end
+  end
+
+  describe 'total_num' do
+    it 'returns the number of orders a merchant has' do
+      expect(@merchant.total_num).must_equal 1
+    end
+  end
+
+  describe 'total_order' do
+    it 'return the collection of orders a merchant has' do
+      @added_order = orders(:second_order)
+      @order_item = OrderItem.create!(product_id: @product1.id, order_id: @added_order.id, quantity: 2)
+      @merchant.total_orders.each do |order|
+        expect(order).must_be_instance_of Order
+      end
+      expect(@merchant.total_num).must_equal 2
+    end
+  end
+
+  describe 'order_belongs_to_merchant?' do
+    it 'checks if an order belongs to a merchant' do
+      expect(@merchant.order_belongs_to_merchant?(@order)).must_equal true
     end
   end
 
