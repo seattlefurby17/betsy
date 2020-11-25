@@ -94,11 +94,6 @@ describe Merchant do
       end
       expect(@merchant.total_num).must_equal 2
     end
-    it "must calculate total number of orders for a given status" do
-      orders.first.update(status: 'processing')
-      expect(@merchant.total_num('processing')).must_equal 1
-    end
-
   end
 
   describe 'order_belongs_to_merchant?' do
