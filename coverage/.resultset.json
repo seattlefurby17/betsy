@@ -1,7 +1,7 @@
 {
   "Minitest": {
     "coverage": {
-      "/Users/spv/Desktop/Ada_14/betsy/app/mailers/application_mailer.rb": {
+      "/Users/idagoitom/Desktop/ADA/projects/betsy/app/mailers/application_mailer.rb": {
         "lines": [
           0,
           0,
@@ -11,7 +11,7 @@
         "branches": {
         }
       },
-      "/Users/spv/Desktop/Ada_14/betsy/app/models/category.rb": {
+      "/Users/idagoitom/Desktop/ADA/projects/betsy/app/models/category.rb": {
         "lines": [
           0,
           0,
@@ -20,48 +20,7 @@
         "branches": {
         }
       },
-      "/Users/spv/Desktop/Ada_14/betsy/app/models/order_item.rb": {
-        "lines": [
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/spv/Desktop/Ada_14/betsy/app/models/product.rb": {
-        "lines": [
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/spv/Desktop/Ada_14/betsy/app/models/order.rb": {
+      "/Users/idagoitom/Desktop/ADA/projects/betsy/app/models/order_item.rb": {
         "lines": [
           0,
           0,
@@ -75,46 +34,9 @@
           0,
           0,
           0,
-          0,
           null,
           0,
           0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/spv/Desktop/Ada_14/betsy/app/models/application_record.rb": {
-        "lines": [
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/spv/Desktop/Ada_14/betsy/app/models/merchant.rb": {
-        "lines": [
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          null,
           0,
           0,
           null,
@@ -123,7 +45,141 @@
         "branches": {
         }
       },
-      "/Users/spv/Desktop/Ada_14/betsy/app/jobs/application_job.rb": {
+      "/Users/idagoitom/Desktop/ADA/projects/betsy/app/models/product.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/idagoitom/Desktop/ADA/projects/betsy/app/models/order.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          null,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/idagoitom/Desktop/ADA/projects/betsy/app/models/application_record.rb": {
+        "lines": [
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/idagoitom/Desktop/ADA/projects/betsy/app/models/merchant.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/idagoitom/Desktop/ADA/projects/betsy/app/jobs/application_job.rb": {
         "lines": [
           0,
           null,
@@ -136,7 +192,7 @@
         "branches": {
         }
       },
-      "/Users/spv/Desktop/Ada_14/betsy/app/controllers/application_controller.rb": {
+      "/Users/idagoitom/Desktop/ADA/projects/betsy/app/controllers/application_controller.rb": {
         "lines": [
           0,
           null,
@@ -160,16 +216,20 @@
           0,
           0,
           0,
+          null,
           0,
           null,
           0,
+          null,
           0
         ],
         "branches": {
         }
       },
-      "/Users/spv/Desktop/Ada_14/betsy/app/controllers/homepages_controller.rb": {
+      "/Users/idagoitom/Desktop/ADA/projects/betsy/app/controllers/homepages_controller.rb": {
         "lines": [
+          0,
+          0,
           0,
           0,
           0,
@@ -180,8 +240,9 @@
         "branches": {
         }
       },
-      "/Users/spv/Desktop/Ada_14/betsy/app/controllers/merchants_controller.rb": {
+      "/Users/idagoitom/Desktop/ADA/projects/betsy/app/controllers/merchants_controller.rb": {
         "lines": [
+          0,
           0,
           null,
           0,
@@ -243,10 +304,33 @@
         "branches": {
         }
       },
-      "/Users/spv/Desktop/Ada_14/betsy/app/controllers/orders_controller.rb": {
+      "/Users/idagoitom/Desktop/ADA/projects/betsy/app/controllers/orders_controller.rb": {
         "lines": [
           0,
           0,
+          null,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
           0,
           0,
           null,
@@ -257,6 +341,10 @@
           0,
           0,
           0,
+          0,
+          null,
+          0,
+          0,
           null,
           0,
           0,
@@ -266,7 +354,26 @@
           0,
           null,
           0,
+          0,
+          0,
           null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
           0,
           null,
           0,
@@ -279,7 +386,7 @@
         "branches": {
         }
       },
-      "/Users/spv/Desktop/Ada_14/betsy/app/controllers/products_controller.rb": {
+      "/Users/idagoitom/Desktop/ADA/projects/betsy/app/controllers/products_controller.rb": {
         "lines": [
           0,
           0,
@@ -348,6 +455,19 @@
           0,
           0,
           0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
           null,
           0,
           null,
@@ -365,12 +485,30 @@
         "branches": {
         }
       },
-      "/Users/spv/Desktop/Ada_14/betsy/app/controllers/order_items_controller.rb": {
+      "/Users/idagoitom/Desktop/ADA/projects/betsy/app/controllers/order_items_controller.rb": {
         "lines": [
           0,
           null,
           0,
           0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
           null,
           0,
           null,
@@ -389,31 +527,28 @@
           null,
           0,
           0,
-          null,
           0,
-          null,
           0,
           0,
           null,
-          0,
-          0,
-          0,
-          0,
           0,
           null,
           0,
           0,
           null,
           0,
-          null,
-          0,
-          null,
           0,
           0,
           0,
           0,
           null,
           0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          null,
           0,
           0,
           0,
@@ -422,53 +557,15 @@
           0,
           0,
           null,
-          null,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/spv/Desktop/Ada_14/betsy/app/helpers/homepages_helper.rb": {
-        "lines": [
           0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/spv/Desktop/Ada_14/betsy/app/helpers/orders_helper.rb": {
-        "lines": [
           0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/spv/Desktop/Ada_14/betsy/app/helpers/merchants_helper.rb": {
-        "lines": [
           0,
           0
         ],
         "branches": {
         }
       },
-      "/Users/spv/Desktop/Ada_14/betsy/app/helpers/order_items_helper.rb": {
-        "lines": [
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/spv/Desktop/Ada_14/betsy/app/helpers/products_helper.rb": {
-        "lines": [
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/spv/Desktop/Ada_14/betsy/app/helpers/application_helper.rb": {
+      "/Users/idagoitom/Desktop/ADA/projects/betsy/app/helpers/homepages_helper.rb": {
         "lines": [
           0,
           0
@@ -476,7 +573,47 @@
         "branches": {
         }
       },
-      "/Users/spv/Desktop/Ada_14/betsy/app/channels/application_cable/connection.rb": {
+      "/Users/idagoitom/Desktop/ADA/projects/betsy/app/helpers/orders_helper.rb": {
+        "lines": [
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/idagoitom/Desktop/ADA/projects/betsy/app/helpers/merchants_helper.rb": {
+        "lines": [
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/idagoitom/Desktop/ADA/projects/betsy/app/helpers/order_items_helper.rb": {
+        "lines": [
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/idagoitom/Desktop/ADA/projects/betsy/app/helpers/products_helper.rb": {
+        "lines": [
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/idagoitom/Desktop/ADA/projects/betsy/app/helpers/application_helper.rb": {
+        "lines": [
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/idagoitom/Desktop/ADA/projects/betsy/app/channels/application_cable/connection.rb": {
         "lines": [
           0,
           0,
@@ -486,7 +623,7 @@
         "branches": {
         }
       },
-      "/Users/spv/Desktop/Ada_14/betsy/app/channels/application_cable/channel.rb": {
+      "/Users/idagoitom/Desktop/ADA/projects/betsy/app/channels/application_cable/channel.rb": {
         "lines": [
           0,
           0,
@@ -497,6 +634,6 @@
         }
       }
     },
-    "timestamp": 1606267964
+    "timestamp": 1606333391
   }
 }
