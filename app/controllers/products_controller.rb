@@ -62,6 +62,7 @@ class ProductsController < ApplicationController
     if @product.nil?
       flash[:error] = "Cannot find product to retire"
       redirect_to products_path
+      return
     end
     if @product.retired
       @product.retired = false
