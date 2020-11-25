@@ -206,9 +206,13 @@ describe ProductsController do
   end
 
   describe 'find product' do
-    it 'can find a product' do
+    it 'can find a product with a valid id' do
       prod = products(:product_one)
       expect(Product.find_by(id: prod.id)).must_equal prod
+    end
+    it 'cannot find a product with a valid id' do
+      # prod = products(:product_one)
+      expect(Product.find_by(id: -1)).must_equal nil
     end
   end
 end
