@@ -59,10 +59,17 @@ describe OrderItem do
 
         it 'changes quantity when updates' do
 
-        @order_item.quantity = @order_item.quantity + 7
-        expect(@order_item.quantity).must_equal 11
+        @order_item.add_quantity(7)
+        expect( @order_item.quantity).must_equal 11
 
         end
+
+        it 'changes quantity when updates' do
+
+            @order_item.change_quantity(7)
+            expect( @order_item.quantity).must_equal 7
+    
+            end
     end
   
 end
