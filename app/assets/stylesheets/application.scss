@@ -87,11 +87,34 @@ footer {
   background-color:#CC490C;
   padding-top: 20px;
   padding-bottom: 20px;
-  text-align: center;
   width: 100%;
   position: fixed;
   bottom: 0
 }
+
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  height: 70px;
+  align-items: center;
+  padding: 30px;
+  color: white;
+}
+
+.social-wrapper ul li {
+  display: inline;
+  padding: 10px;
+}
+
+.instagram-icon,
+.github-icon,
+.email-icon,
+.flickr-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 25px;
+}
+
 .nav-bar-11 {
   margin-top: 100px;
 }
@@ -106,8 +129,8 @@ footer {
   border-radius: 25px;
   background: #CC490C;
   padding: 3px;
-
 }
+
 
 .list_image_homepage{
   float: right;
@@ -116,6 +139,8 @@ footer {
   object-fit: cover;
   margin-bottom: 100px;
   border-radius: 20px;
+  background: #CC490C;
+  padding: 3px;
 
 }
 
@@ -126,15 +151,16 @@ footer {
   object-fit: cover;
   margin-bottom: 100px;
   border-radius: 20px;
-
+  background: #CC490C;
+  padding: 3px;
 }
 
 .churro-bio {
-  margin-left: 30px;
   font-family: 'Baloo Thambi 2', cursive;
-  font-size: 1.2rem;
-  font-weight: 400;
+  font-size: 26px;
+  font-weight: bold;
   line-height: 1.5;
+  padding-left: 50px;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -4724,6 +4750,7 @@ input[type="button"].btn-block {
   flex: 1 1 auto;
   min-height: 1px;
   padding: 1.25rem;
+
 }
 
 .card-title {
@@ -8191,6 +8218,7 @@ button.bg-light:focus {
 .my-4 {
   margin-top: 1.5rem !important;
 }
+
 
 .mr-4,
 .mx-4 {
