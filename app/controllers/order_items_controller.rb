@@ -2,6 +2,18 @@ class OrderItemsController < ApplicationController
 
   def add_to_cart
     @product = Product.find_by(id: params[:id])
+    if params[:quantity].to_i <= 0
+      flash[:error] = "Invalid quantity to add to cart given"
+      redirect_to products_path
+      return
+    end
+
+    if @product.nil?
+      flash[:error] = "Product to add to cart not found"
+      redirect_to products_path
+      return
+    end
+
     if @product.retired
       flash[:error] = "That product is retired!"
       redirect_to products_path
@@ -46,14 +58,14 @@ class OrderItemsController < ApplicationController
 
   def destroy
     @product = Product.find_by(id: params[:id])
-    if @order_item = OrderItem.find_by(product_id: @product.id, order_id: @shopper)
+    if @order_item = OrderItem.find_by(product_id: @product&.id, order_id: @shopper)
       @order_item.destroy
 
-      if @order_item.nil?
+      else @order_item.nil?
         flash["error"] = "Could not delete product"
         return
-      end
     end
+
     redirect_to cart_path
     return
   end
