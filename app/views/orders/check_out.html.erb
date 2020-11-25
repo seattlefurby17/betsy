@@ -7,15 +7,12 @@
         <div class="row">
           <div class="col-50">
             <h3>Billing Address</h3>
-<!--            example css code-->
-<!--            <label for="fname"><i class="fa fa-user"></i> Full Name </label>-->
-<!--            <input type="text" id="fname" name="firstname" >-->
             <%= f.label :name do %><i class="fa fa-user"></i> Full Name <% end %>
-            <%= f.text_field :name, placeholder: "Ada Lovelace" %, required: true>
+            <%= f.text_field :name, placeholder: "Ada Lovelace", required: true %>
             <%= f.label :email do %> <i class="fa fa-envelope"></i> Email<% end %>
             <%= f.text_field :email, placeholder: "ada-lovelace@petsy.com", required: true %>
             <%= f.label :address do %><i class="fa fa-address-card-o"></i> Address <% end %>
-            <%= f.text_field :address, placeholder: "542 W. 15th Street" %, required: true>
+            <%= f.text_field :address, placeholder: "542 W. 15th Street", required: true %>
             <%= f.label :city do %><i class="fa fa-institution"></i> City<% end %>
             <%= f.text_field :city, placeholder: "Seattle", required: true %>
             <div class="row">
@@ -41,9 +38,9 @@
             </div>
 
             <%= f.label :card_number do %> Credit card number<% end %>
-            <%= f.text_field :card_number, placeholder: "1111-2222-3333-4444", required: true %>
+            <%= f.text_field :card_number, placeholder: "11111222233334444", required: true %>
             <%= f.label :expiration_month do %> Expiration Month<% end %>
-            <%= f.text_field :expiration_month, placeholder: "September", required: true %>
+            <%= f.text_field :expiration_month, placeholder: "09", required: true %>
 
 
             <div class="row">
@@ -58,7 +55,7 @@
             </div>
           </div>
         </div>
-        <%= f.submit 'Make Purchase', class: "btn" %>
+        <%= f.submit 'Make Purchase', class: 'btn btn-primary' %>
       </form>
     </div>
   </div>

@@ -62,8 +62,21 @@ class ProductsController < ApplicationController
     if @product.nil?
       flash[:error] = "Cannot find product to retire"
       redirect_to products_path
+      return
     end
-    @product.retired = true
+    if @product.retired
+      @product.retired = false
+      @product.save
+      flash[:success] = "Put product back for sale!"
+      redirect_to product_path(@product)
+      return
+    else
+      @product.retired = true
+      @product.save
+      flash[:success] = "Retired product"
+      redirect_to product_path(@product)
+      return
+    end
   end
 
   private

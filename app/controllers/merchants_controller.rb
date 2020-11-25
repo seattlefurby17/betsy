@@ -1,5 +1,6 @@
 class MerchantsController < ApplicationController
-
+  before_action :require_login, only: [:logout]
+  
   def index
     @merchants = Merchant.all
   end
@@ -14,7 +15,7 @@ class MerchantsController < ApplicationController
 
   end
 
-  def create
+  def create # same as login
     auth_hash = request.env['omniauth.auth']
     merchant = Merchant.find_by(uid: auth_hash[:uid], provider: "github")
     if merchant
@@ -45,7 +46,7 @@ class MerchantsController < ApplicationController
     return
   end
 
-  def destroy
+  def destroy # same as logout
     session[:merchant_id] = nil
     flash[:success] = "Successfully logged out!"
 

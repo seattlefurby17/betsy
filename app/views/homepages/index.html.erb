@@ -1,25 +1,32 @@
 <div class="container">
-  <h1 class="my-4">pEtsy</h1>
+  <h1 class="my-4"><strong>Welcome to pEtsy, your home for 90's pets! </strong></h1>
   <div class="row">
-    <div class="list-group-homepage">
-      <div class="list-group">
-        <a href="#" class="list-group-item">Category 1</a>
-        <a href="#" class="list-group-item">Category 2</a>
-        <a href="#" class="list-group-item">Category 3</a>
-      </div>
-  </div>
+<!--    <div class="list-group-homepage">-->
+<!--      <div class="list-group">-->
+<!--        <a href="#" class="list-group-item">Category 1</a>-->
+<!--        <a href="#" class="list-group-item">Category 2</a>-->
+<!--        <a href="#" class="list-group-item">Category 3</a>-->
+<!--      </div>-->
+<!--  </div>-->
 
 <div class = "product-image">
     <h2 class="spotlight_header">
       <span class="spotlight-name">Product Spotlight:</span>
      <strong> <%=@spotlight.name%></strong>
+      <% if @spotlight&.photo_url %>
+      <%= image_tag @spotlight.photo_url, class: 'list_image_homepage'%>
+      <% end %>
       <p class="spotlight__description">
         <%= @spotlight.description%></h2>
       <h2 class="spotlight__header">
-      <h2> <span class="spotlight-name">Pet of the day</span></h2>
-        <!--      need to get this to work to generate random pet pic-->
-        <img src="<%= @spotlight.photo_url %>"/>
-        <%= image_tag 'furby-3.jpg', class: 'list_image'%>
+
+</div>
+    <div>
+      <h2> <span class="spotlight-name">Pet of the day:<span style="color:black;"> Churro</span></span></h2>
+      <%= image_tag @churro, class: 'churro_image'%>
+    <span class = "churro-bio">At pEtsy, we believe that every animal deserves a forever home.
+       Starting this week, 5% of sales generated will be given to local animal shelters across the state of Washington.
+       Thanks to you, we can place more lovely cats like Churro into loving families!</span>
     </div>
     <!-- /.col-lg-9 -->
   </div>

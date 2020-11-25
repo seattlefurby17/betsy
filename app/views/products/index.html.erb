@@ -4,25 +4,28 @@
 
     <!-- Loop starts here -->
   <% @products.each do |product| %>
-  <div class="col-lg-4 col-md-6 mb-4">
-      <div class="card h-100">
-        <% if product.photo_url %>
-          <%= image_tag product.photo_url, class: 'list_image'%>
-        <% else %>
-          <%= image_tag 'no-image-found.jpg', class: 'list_image' %>
-        <% end %>
-        <div class="card-body">
-          <h4 class="card-title">
-            <%= link_to product.name, product_path(product) %>
-          </h4>
-          <h5>$<%= product.price %></h5>
-          <p class="card-text"><%= product.description %></p>
+    <% unless product.retired %>
+      <div class="col-lg-4 col-md-6 mb-4">
+          <div class="card h-100">
+            <% if product.photo_url %>
+              <%= image_tag product.photo_url, class: 'list_image'%>
+            <% else %>
+              <%= image_tag 'no-image-found.jpg', class: 'list_image' %>
+            <% end %>
+            <div class="card-body">
+              <h4 class="card-title">
+                <%= link_to product.name, product_path(product) %>
+              </h4>
+              <h5><%= number_to_currency(product.price) %></h5>
+              <p class="card-text"><%= product.description %></p>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9733; &#9733;</small>
+              <br><small class="text-muted">Backed by the pEtsy guarantee</small>
+            </div>
+          </div>
         </div>
-        <div class="card-footer">
-          <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-        </div>
-      </div>
-    </div>
+      <% end %>
     <% end %>
 
     <!-- Loop ends here -->

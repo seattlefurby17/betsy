@@ -11,7 +11,6 @@ describe ProductsController do
                    photo_url: "gettyimages.com", stock: 10, merchant_id: merchant.id)
   }
 
-
   describe "index" do
     it "responds with success when products are saved" do
       get products_path
@@ -86,7 +85,7 @@ describe ProductsController do
       must_redirect_to product_path(created_product)
     end
 
-    it "does not create a product if the form data violates Product validations" do
+    it "does not create a product if the form data violates product validations" do
       @product_hash[:product][:price] = "a"
 
       perform_login(merchant)
@@ -156,6 +155,64 @@ describe ProductsController do
       expect{
         patch product_path(@id), params: updated_product_hash
       }.wont_change "product.name"
+    end
+  end
+
+  describe 'retire' do
+    it 'can retire a product with a valid id' do
+      perform_login(merchants(:ada))
+
+      prod = products(:product_one)
+
+      expect{
+        delete product_path(prod.id)
+      }.wont_change "Product.count"
+
+       prod.reload #will refresh all values
+      expect(prod.retired).must_equal true
+      expect(flash[:success]).must_equal "Retired product"
+      must_respond_with :redirect
+      must_redirect_to product_path(prod)
+
+    end
+
+    it 'cannot find a product with an invalid id' do
+      perform_login(merchants(:ada))
+      expect{
+        delete product_path(-1)
+      }.wont_change "Product.count"
+
+      expect(flash[:error]).must_equal "Cannot find product to retire"
+      must_respond_with :redirect
+      must_redirect_to products_path
+    end
+
+    it 'cannot retire a retired product' do
+      perform_login(merchants(:ada))
+
+      prod = products(:product_one)
+      delete product_path(prod.id)
+
+      expect{
+        delete product_path(prod.id)
+      }.wont_change "Product.count"
+
+      prod.reload #will refresh all values
+      expect(prod.retired).must_equal false
+      expect(flash[:success]).must_equal "Put product back for sale!"
+      must_respond_with :redirect
+      must_redirect_to product_path(prod)
+    end
+  end
+
+  describe 'find product' do
+    it 'can find a product with a valid id' do
+      prod = products(:product_one)
+      expect(Product.find_by(id: prod.id)).must_equal prod
+    end
+    it 'cannot find a product with a valid id' do
+      # prod = products(:product_one)
+      expect(Product.find_by(id: -1)).must_equal nil
     end
   end
 end
