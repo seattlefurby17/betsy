@@ -14,7 +14,11 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find_by(id: params[:id].to_i)
-    if @current_merchant&.order_belongs_to_merchant?(@order) #check for nil before calling the method
+    if @order.nil?
+      # Not found
+      flash[:error] = "The order doesn't exist!"
+      redirect_to root_path
+    elsif @current_merchant&.order_belongs_to_merchant?(@order) #check for nil before calling the method
       # Merchant can view this order page
       return
     elsif @orders.include?(@order.id)
@@ -45,7 +49,7 @@ class OrdersController < ApplicationController
     @order.update(order_params)
     @order.status = 'paid'
     
-    if @order.save
+    if @order.save!
       session[:orders] << @order.id # Add order ID to list of orders
       session[:shopper_id] = Order.create!(status: "shopping").id # Start a new cart/order for user
       flash[:success] = "Order placed successfully, please wait two decades for processing"
