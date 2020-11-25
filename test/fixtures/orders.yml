@@ -17,3 +17,14 @@ second_order:
   expiration_year: 2025
   security_code: 125
   zip_code: 11222
+
+paid_order:
+  name: 'lovelaffce'
+  email: 'grace@ffada.com'
+  address: 'ada address'
+  card_number: 123456789123456789
+  expiration_month: 10
+  expiration_year: 2025
+  security_code: 125
+  zip_code: 11222
+  status: 'paid'
