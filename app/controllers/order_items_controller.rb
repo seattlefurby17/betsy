@@ -2,6 +2,11 @@ class OrderItemsController < ApplicationController
 
   def add_to_cart
     @product = Product.find_by(id: params[:id])
+    if @product.nil?
+      flash[:error] = "Product to add to cart not found"
+      redirect_to products_path
+      return
+    end
     if @product.retired
       flash[:error] = "That product is retired!"
       redirect_to products_path
