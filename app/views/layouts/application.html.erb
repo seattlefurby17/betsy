@@ -102,9 +102,29 @@
     <%= yield %>
 
     <!-- Footer -->
-    <footer>
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; pEtsy 2020</p>
-      </div>
-    </footer>
+<!--    <footer>-->
+<!--      <div class="container">-->
+<!--        <p class="m-0 text-center text-white">Copyright &copy; pEtsy 2020</p>-->
+<!--      </div>-->
+<!--    </footer>-->
 
+    <footer class="site-footer">
+      <div class="social-wrapper">
+        <ul>
+          <li>
+              <%= link_to image_tag("instagram-icon.png", width: "30px", height: "30px"), "https://www.instagram.com/churro.in.seattle/" %>
+          </li>
+          <li>
+            <%= link_to image_tag("flickr-icon.png", width: "30px", height: "30px"), "https://churro2020.imgbb.com/" %>
+          </li>
+          <li>
+            <%= image_tag("email-icon.png", width: "30px", height: "30px") %>
+          </li>
+          <li>
+            <%= link_to image_tag("github-icon.png", width: "30px", height: "30px"), "https://github.com/seattlefurby17/betsy" %>
+          </li>
+        </ul>
+      </div>
+      <p class = "footer-text">Copyright &copy; 🐾 pEtsy 2020.  All rights reserved.</p>
+<!--      </nav>-->
+    </footer>
