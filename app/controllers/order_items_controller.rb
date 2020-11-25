@@ -57,6 +57,4 @@ class OrderItemsController < ApplicationController
     redirect_to cart_path
     return
   end
-
-
 end
