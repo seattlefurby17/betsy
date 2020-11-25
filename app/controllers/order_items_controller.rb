@@ -14,6 +14,7 @@ class OrderItemsController < ApplicationController
       return
     end
 
+
     if @product.retired
       flash[:error] = "That product is retired!"
       redirect_to products_path
