@@ -17,8 +17,8 @@
 <% if @current_merchant %>
 <h1>Order Fulfillment:</h1>
 <p>Total Revenue: <%= number_to_currency(@current_merchant.total_revenue)  %></p>
-<p> Total Revenue by pending (shopping): <%= number_to_currency(@current_merchant.total_revenue('shopping')) %></p>
-<p> Total Revenue by paid (processing): <%= number_to_currency(@current_merchant.total_revenue('processing')) %></p>
+<p> Total Revenue by pending: <%= number_to_currency(@current_merchant.total_revenue('shopping')) %></p>
+<p> Total Revenue by paid: <%= number_to_currency(@current_merchant.total_revenue('processing')) %></p>
 <p> Total Revenue by complete: <%= number_to_currency(@current_merchant.total_revenue('complete')) %> </p>
 <p> Total Revenue by cancelled: <%= number_to_currency(@current_merchant.total_revenue('cancelled')) %> </p>
 <p> Total Number of Orders: <%= @current_merchant.total_num %> </p>
