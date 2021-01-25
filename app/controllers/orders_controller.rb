@@ -35,8 +35,6 @@ class OrdersController < ApplicationController
     end
   end
 
-  def cart
-  end
 
   def check_out # Loads the checkout form
     if @order.order_items.empty?

@@ -1,4 +1,5 @@
-<h2 class = "spotlight-other"><strong>Shopping Cart:</strong></h2>
+<div class = "shopping-cart">
+<h2 class = "spotlight-other-2"><strong>Shopping Cart:</strong></h2>
 
 <% if @order.order_items.empty? %>
   <h3 class ="spotlight-padding">Your cart is empty!</h3>
@@ -28,4 +29,5 @@
 
 <%= link_to 'Checkout', checkout_path, class: 'btn btn-primary' %>
 <% end %>
+</div>
 

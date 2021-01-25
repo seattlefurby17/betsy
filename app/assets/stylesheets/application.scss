@@ -80,6 +80,7 @@ body {
   font-weight: 400;
   line-height: 1.5;
   text-align: left;
+
 }
 
 
@@ -144,6 +145,12 @@ footer {
 
 }
 
+.shopping-cart{
+  margin-left: 20px;
+  padding-top: 20px;
+
+}
+
 .churro_image {
   float: left;
   width:  350px;
@@ -152,15 +159,17 @@ footer {
   margin-bottom: 100px;
   border-radius: 20px;
   background: #CC490C;
+  margin-right: 30px;
   padding: 3px;
 }
 
 .churro-bio {
   font-family: 'Baloo Thambi 2', cursive;
+  padding-right: 50px;
   font-size: 26px;
   font-weight: bold;
   line-height: 1.5;
-  padding-left: 50px;
+
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -10335,12 +10344,27 @@ label {
 }
 
 .spotlight-padding {
-  padding-left: 35px;
+  padding-left: 30px;
 }
 
 .spotlight-other{
   color: #CC490C;
-  padding-left: 35px;
+  margin-left: 15px;
+  
+}
+
+.order-text{
+  color: black;
+}
+
+.spotlight-other-2{
+  color: #CC490C;
+}  
+
+.spotlight-other-3{
+  color: #CC490C;
+  margin-left: 20px;
+  
 }
 
 .list-group-homepage {
